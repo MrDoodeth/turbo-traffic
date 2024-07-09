@@ -7,8 +7,8 @@ public class RoadSpawner : MonoBehaviour
     [SerializeField] private int tilesCount = 5;
     [SerializeField] private float offset = 6.25f;
     [SerializeField] private float destroyDistance = 8;
-    private Queue<GameObject> roads;
     [SerializeField] private Transform playerTr;
+    private Queue<GameObject> roads;
     private Vector3 spawnPoint;
     private int countOfRoads;
 
