@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class TargetHolder : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;

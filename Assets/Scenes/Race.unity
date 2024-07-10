@@ -215,11 +215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86c79ccab0977342a8165977c0b02b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadPrefab: {fileID: 8899441126914816554, guid: d213ef176142a544a8220ec19fb4ae94,
+  roadPrefab: {fileID: 2560136905449469086, guid: d213ef176142a544a8220ec19fb4ae94,
     type: 3}
   tilesCount: 10
   offset: 27
-  destroyDistance: 16
+  destroyDistance: 20
   player: {fileID: 2173635938852830728}
   minX: -6.764
   maxX: 6.764
@@ -325,14 +325,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 6.35, z: -6.34}
+  m_LocalRotation: {x: 0.35322744, y: -0, z: -0, w: 0.9355375}
+  m_LocalPosition: {x: 0, y: 10.56, z: -6.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1546197119}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 41.37, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1540687310510105791}
-  offset: {x: 0, y: 6.35, z: -6.34}
+  offset: {x: 0, y: 10.56, z: -6.8}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,13 +478,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.83971065, y: -0.19024347, z: 0.03661653, w: 0.5072995}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 59.986, y: -164.755, z: -145.636}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,82 +652,6 @@ Transform:
   - {fileID: 3372819238617125842}
   m_Father: {fileID: 1540687310510105791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1211762344
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1211762346}
-  - component: {fileID: 1211762345}
-  m_Layer: 0
-  m_Name: EnemyCarSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1211762345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211762344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a112d1ef6646cf4d9daa8fdb996c2e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2173635938852830728}
-  cars:
-  - {fileID: -8089715984068786078, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
-  - {fileID: 1948654254333970530, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
-  - {fileID: 1017808377810507667, guid: 79ef5961b86276943ab5da38ae9f2e4b, type: 3}
-  - {fileID: -3147248078423443115, guid: f269a0a343ed94c4e908a388c940ea06, type: 3}
-  - {fileID: -3251077838312815510, guid: a119eb0fa059db34bbaef286c1af1696, type: 3}
-  - {fileID: -4330658861631592064, guid: 81835658bbd378143a0f525b8552f557, type: 3}
-  - {fileID: -4426682751459510305, guid: c98da428142c39c42bb62c454958cd1f, type: 3}
-  - {fileID: -7381529476166238325, guid: 979de0ac65f6d2b48a89e9088986637f, type: 3}
-  - {fileID: 734385841176991611, guid: 6fa2aa0a1d56aba4a8884471618de9e4, type: 3}
-  - {fileID: -695858136164279894, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
-  - {fileID: 8698543577951917864, guid: 93d0d450ec8b42e46b724bf2bbee330b, type: 3}
-  - {fileID: 6232987791965294263, guid: 81c050d9e127fdd45af1f6b8da476b2b, type: 3}
-  - {fileID: 9174849894008390062, guid: ce2dd4bb67fdc684dac928dc2cfb7a0f, type: 3}
-  - {fileID: 5098088354992585378, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
-  - {fileID: -725350820203362139, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
-  - {fileID: 8648620584918820311, guid: b0ad868427d8c8a4b86144f9786776d3, type: 3}
-  - {fileID: -6233852495318730401, guid: 00d77ce56096de34eb6645947a0f8925, type: 3}
-  - {fileID: -6620330828689838439, guid: 05aec82adc02f16409639716322b1673, type: 3}
-  - {fileID: -2736360649773782185, guid: cffe1734bc43bcb47b6433ebca05c04c, type: 3}
-  - {fileID: 4250172767688046174, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
-  - {fileID: 3514488298161758410, guid: 993432d7809c9bf489a5a96006618fef, type: 3}
-  trafficDensity: 0.9
-  minSpawnInterval: 5
-  maxSpawnInterval: 3
-  passingLanes:
-  - {fileID: 1401714805}
-  - {fileID: 894090673}
-  oncomingLanes:
-  - {fileID: 504669815}
-  - {fileID: 1798539836}
---- !u!4 &1211762346
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211762344}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401714804
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,8 +692,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1546197119}
+  - component: {fileID: 1546197120}
+  - component: {fileID: 1546197121}
   m_Layer: 0
-  m_Name: EnemySpawnPoints
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -784,8 +709,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546197118}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: -2.3292599, z: 8.665602}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -793,8 +718,67 @@ Transform:
   - {fileID: 894090673}
   - {fileID: 504669815}
   - {fileID: 1798539836}
-  m_Father: {fileID: 330585546}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1546197120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546197118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb225901561fb344e807e6db533899d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1540687310510105791}
+  offset: {x: 0, y: 0, z: 0}
+--- !u!114 &1546197121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546197118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a112d1ef6646cf4d9daa8fdb996c2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2173635938852830728}
+  cars:
+  - {fileID: -8089715984068786078, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
+  - {fileID: 1948654254333970530, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
+  - {fileID: 1017808377810507667, guid: 79ef5961b86276943ab5da38ae9f2e4b, type: 3}
+  - {fileID: -3147248078423443115, guid: f269a0a343ed94c4e908a388c940ea06, type: 3}
+  - {fileID: -3251077838312815510, guid: a119eb0fa059db34bbaef286c1af1696, type: 3}
+  - {fileID: -4330658861631592064, guid: 81835658bbd378143a0f525b8552f557, type: 3}
+  - {fileID: -4426682751459510305, guid: c98da428142c39c42bb62c454958cd1f, type: 3}
+  - {fileID: -7381529476166238325, guid: 979de0ac65f6d2b48a89e9088986637f, type: 3}
+  - {fileID: 734385841176991611, guid: 6fa2aa0a1d56aba4a8884471618de9e4, type: 3}
+  - {fileID: -695858136164279894, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
+  - {fileID: 8698543577951917864, guid: 93d0d450ec8b42e46b724bf2bbee330b, type: 3}
+  - {fileID: 6232987791965294263, guid: 81c050d9e127fdd45af1f6b8da476b2b, type: 3}
+  - {fileID: 9174849894008390062, guid: ce2dd4bb67fdc684dac928dc2cfb7a0f, type: 3}
+  - {fileID: 5098088354992585378, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+  - {fileID: -725350820203362139, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
+  - {fileID: 8648620584918820311, guid: b0ad868427d8c8a4b86144f9786776d3, type: 3}
+  - {fileID: -6233852495318730401, guid: 00d77ce56096de34eb6645947a0f8925, type: 3}
+  - {fileID: -6620330828689838439, guid: 05aec82adc02f16409639716322b1673, type: 3}
+  - {fileID: -2736360649773782185, guid: cffe1734bc43bcb47b6433ebca05c04c, type: 3}
+  - {fileID: 4250172767688046174, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
+  - {fileID: 3514488298161758410, guid: 993432d7809c9bf489a5a96006618fef, type: 3}
+  trafficDensity: 0.9
+  minSpawnInterval: 5
+  maxSpawnInterval: 3
+  passingLanes:
+  - {fileID: 1401714805}
+  - {fileID: 894090673}
+  oncomingLanes:
+  - {fileID: 504669815}
+  - {fileID: 1798539836}
+  maxRandomSpawnDistance: 2
 --- !u!1 &1620338235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,7 +1421,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1620338236}
   - {fileID: 187983997}
-  - {fileID: 1211762346}
+  - {fileID: 1546197119}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}

@@ -16,6 +16,7 @@ public class EnemyCarSpawner : MonoBehaviour
     [Header("Spawners")]
     [SerializeField] private Transform[] passingLanes;
     [SerializeField] private Transform[] oncomingLanes;
+    [SerializeField, Range(0f, 5f)] private float maxRandomSpawnDistance;
     private float elapsedTime;
     private List<EnemyCar> deactiveEnemyCars;
 
@@ -73,22 +74,24 @@ public class EnemyCarSpawner : MonoBehaviour
     {
         var variant = Random.Range(0, 3);
         EnemyCar car;
+        Vector3 spawnPoint1 = spawnPoints[0].position + Vector3.forward * Random.Range(-maxRandomSpawnDistance, maxRandomSpawnDistance);
+        Vector3 spawnPoint2 = spawnPoints[1].position + Vector3.forward * Random.Range(-maxRandomSpawnDistance, maxRandomSpawnDistance);
 
         switch (variant)
         {
             case 0:
                 car = GetEnemyCar();
-                car.transform.SetPositionAndRotation(spawnPoints[0].position, spawnPoints[0].rotation);
+                car.transform.SetPositionAndRotation(spawnPoint1, spawnPoints[0].rotation);
                 break;
             case 1:
                 car = GetEnemyCar();
-                car.transform.SetPositionAndRotation(spawnPoints[1].position, spawnPoints[1].rotation);
+                car.transform.SetPositionAndRotation(spawnPoint2, spawnPoints[1].rotation);
                 break;
             case 2:
                 var car1 = GetEnemyCar();
                 var car2 = GetEnemyCar();
-                car1.transform.SetPositionAndRotation(spawnPoints[0].position, spawnPoints[0].rotation);
-                car2.transform.SetPositionAndRotation(spawnPoints[1].position, spawnPoints[1].rotation);
+                car1.transform.SetPositionAndRotation(spawnPoint1, spawnPoints[0].rotation);
+                car2.transform.SetPositionAndRotation(spawnPoint2, spawnPoints[1].rotation);
                 break;
         }
     }

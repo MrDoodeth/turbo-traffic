@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class RoadSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject roadPrefab;
+    [SerializeField] private Road roadPrefab;
     [SerializeField] private int tilesCount = 5;
     [SerializeField] private float offset = 6.25f;
     [SerializeField] private float destroyDistance = 8;
     [SerializeField] private CarController player;
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
-    private Queue<GameObject> roads;
+    private Queue<Road> roads;
     private Vector3 spawnPoint;
     private int countOfRoads;
 
     private void Awake()
     {
-        roads = new Queue<GameObject>(tilesCount);
+        roads = new Queue<Road>(tilesCount);
         
         for (int i = 0; i < tilesCount; i++)
         {
@@ -41,8 +41,10 @@ public class RoadSpawner : MonoBehaviour
             spawnPoint = new Vector3(transform.position.x, transform.position.y, transform.position.z + offset * (tilesCount + countOfRoads));
             countOfRoads++;
             var road = roads.Dequeue();
-            road.transform.position = spawnPoint;
+            road.transform.SetPositionAndRotation(spawnPoint, RandomRotation());
+            road.RandomVariant();
             roads.Enqueue(road);
         }
     }
+    private static Quaternion RandomRotation() => Quaternion.Euler(0f, Random.value <= 0.5f ? 0f : 180f, 0f);
 }
