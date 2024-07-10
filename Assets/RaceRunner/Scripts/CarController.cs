@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class CarController : MonoBehaviour
 {
@@ -13,19 +14,18 @@ public class CarController : MonoBehaviour
     [Space] 
     [Header("Animations")] 
     [SerializeField] private Transform Wheels;
-
     [SerializeField] private float angleBySpeed = 85f;
     [Space] 
     
     [SerializeField] private Transform body;
-    [SerializeField, Range(0.01f, 60f)] private float shiftAngle;
-    [SerializeField, Range(0.01f, 60f)] private float speedRotationAngle;
-    [SerializeField] private float shiftTime;
+    [SerializeField, Range(0.01f, 60f)] private float shiftHorizontalAngle;
+    [SerializeField, Range(0.01f, 60f)] private float speedVerticalAngle;
+    [SerializeField] private float bodyTime;
     [Space] 
     
     [SerializeField] private Transform car;
     [SerializeField, Range(0.01f, 60f)] private float rotateAngle;
-    [SerializeField] private float rotateTime;
+    [SerializeField] private float carTime;
     [HideInInspector] public bool isOnBorder;
     private Rigidbody rb;
     public float currentSpeed { get; private set; }
@@ -33,6 +33,7 @@ public class CarController : MonoBehaviour
     private Quaternion targetShift;
     private Quaternion targetRotation;
     private Quaternion targetSpeedRotation;
+    private const float DEFAULT_BRAKING = 1f;
 
     private void Awake()
     {
@@ -59,6 +60,10 @@ public class CarController : MonoBehaviour
         {
             currentSpeed -= braking * Time.deltaTime;
         }
+        else
+        {
+            currentSpeed -= DEFAULT_BRAKING * Time.deltaTime;
+        }
 
         if (isOnBorder)
             currentSpeed -= braking * Time.deltaTime;
@@ -84,13 +89,13 @@ public class CarController : MonoBehaviour
 
         if (!isOnBorder)
         {
-            targetShift = Quaternion.Euler(0f, 0f, horizontal * shiftAngle);
+            targetShift = Quaternion.Euler(0f, 0f, horizontal * shiftHorizontalAngle);
             targetRotation = Quaternion.Euler(0f, horizontal * rotateAngle, 0f);
 
             if (Mathf.Approximately(currentSpeed, minSpeed) || Mathf.Approximately(currentSpeed, maxSpeed))
                 targetSpeedRotation = Quaternion.identity;
             else
-                targetSpeedRotation = Quaternion.Euler(vertical * -speedRotationAngle, 0f, 0f);
+                targetSpeedRotation = Quaternion.Euler(vertical * -speedVerticalAngle, 0f, 0f);
         }
         else
         {
@@ -100,8 +105,8 @@ public class CarController : MonoBehaviour
         }
 
         body.localRotation = Quaternion.Lerp(body.localRotation, targetShift * targetSpeedRotation,
-            shiftTime * Time.deltaTime);
-        car.localRotation = Quaternion.Lerp(car.localRotation, targetRotation, rotateTime * Time.deltaTime);
+            bodyTime * Time.deltaTime);
+        car.localRotation = Quaternion.Lerp(car.localRotation, targetRotation, carTime * Time.deltaTime);
 
         #endregion
     }
