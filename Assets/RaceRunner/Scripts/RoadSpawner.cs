@@ -36,7 +36,7 @@ public class RoadSpawner : MonoBehaviour
         else
             player.isOnBorder = false;
         
-        if (Vector3.Distance(roads.Peek().transform.position, player.transform.position) > destroyDistance)
+        if ((roads.Peek().transform.position - player.transform.position).z < -destroyDistance)
         {
             spawnPoint = new Vector3(transform.position.x, transform.position.y, transform.position.z + offset * (tilesCount + countOfRoads));
             countOfRoads++;
