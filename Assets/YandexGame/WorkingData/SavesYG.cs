@@ -19,7 +19,9 @@ namespace YG
         // Ваши сохранения
 
         public int currentCarIndex;
+        public int highScore;
         public bool[] isFreeCars = new bool[14];
+        public int moneyAmount = 1000000;
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 
@@ -30,6 +32,7 @@ namespace YG
             // Допустим, задать значения по умолчанию для отдельных элементов массива
 
             openLevels[1] = true;
+            
             isFreeCars[0] = true;
         }
     }

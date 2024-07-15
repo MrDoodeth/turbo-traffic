@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TargetHolder : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    public Transform target;
     [SerializeField] private Vector3 offset;
     private void Update()
     {

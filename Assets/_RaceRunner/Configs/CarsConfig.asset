@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cf9069e48cb594ea6b926f5792de60, type: 3}
+  m_Name: CarsConfig
+  m_EditorClassIdentifier: 
+  cars:
+  - car: {fileID: 5718924904256378638, guid: 541b92425f15c3f4c86e4d6b75be1c97, type: 3}
+    price: 0
+  - car: {fileID: 1906719613298055344, guid: aef7dd7420ebb8b439130f8b8352443e, type: 3}
+    price: 1500
+  - car: {fileID: 3539540002187406771, guid: 7369f960c08da7b42bd5bb6ae454aadb, type: 3}
+    price: 2000
+  - car: {fileID: 2369924251723860941, guid: 4b866af849de80748974e1cba5bc046d, type: 3}
+    price: 4000
+  - car: {fileID: 5965922176639596595, guid: e2a58d5be4ff27f45ab632f69ca5aeb4, type: 3}
+    price: 6500
+  - car: {fileID: 2668049500623982556, guid: 1e393b1a6be83be44af9b159436be8c3, type: 3}
+    price: 10000
+  - car: {fileID: 8421135780640593838, guid: 55301ddd00160e1448bfdbfadc803cb4, type: 3}
+    price: 15000
+  - car: {fileID: 4340923669495195560, guid: 81810383ece2d294ba15124ccd42210d, type: 3}
+    price: 20000
+  - car: {fileID: 1610939087555178350, guid: 348414385490f6e40bbbfe9a5f32d687, type: 3}
+    price: 25000
+  - car: {fileID: 7887677577350892477, guid: deb67e39e4e506246a2415162788981e, type: 3}
+    price: 30000
+  - car: {fileID: 3215144526060523735, guid: 37571fed096b69c42b97ec2f70ce0795, type: 3}
+    price: 35000
+  - car: {fileID: 5342058987595826054, guid: bc7ada4abffc8474d8a14c2f31145ef3, type: 3}
+    price: 40000
+  - car: {fileID: 1347650538396764921, guid: 16e9d941548ff92429828f1491d4ff68, type: 3}
+    price: 45000
+  - car: {fileID: 7231058755007787645, guid: c8f4fddf23f86a74a898035df0f9fa3f, type: 3}
+    price: 60000

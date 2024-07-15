@@ -9,8 +9,9 @@ public class EnemyCarSpawner : MonoBehaviour
     
     [SerializeField] private EnemyCar[] cars;
     [SerializeField, Range(0f, 1f)] private float trafficDensity;
-    [SerializeField] private float minSpawnInterval;
     [SerializeField] private float maxSpawnInterval;
+    [SerializeField] private float minSpawnInterval;
+    [SerializeField] private float maxSpeed;
     [Space]
     
     [Header("Spawners")]
@@ -53,8 +54,8 @@ public class EnemyCarSpawner : MonoBehaviour
         }
     }
     
-    private float GetSpawnInterval() => minSpawnInterval + (player.currentSpeed - CarController.MIN_SPEED) *
-        (maxSpawnInterval - minSpawnInterval) / (player.maxSpeed - CarController.MIN_SPEED);
+    private float GetSpawnInterval() => maxSpawnInterval + (Mathf.Clamp(player.currentSpeed, 0f, maxSpeed) - CarController.MIN_SPEED) *
+        (minSpawnInterval - maxSpawnInterval) / (maxSpeed - CarController.MIN_SPEED);
 
     private EnemyCar GetEnemyCar()
     {
@@ -72,6 +73,9 @@ public class EnemyCarSpawner : MonoBehaviour
     
     private void SpawnEnemyCar(Transform[] spawnPoints)
     {
+        if (deactiveEnemyCars.Count == 0 || player.currentSpeed <= 10f)
+            return;
+        
         var variant = Random.Range(0, 3);
         EnemyCar car;
         Vector3 spawnPoint1 = spawnPoints[0].position + Vector3.forward * Random.Range(-maxRandomSpawnDistance, maxRandomSpawnDistance);

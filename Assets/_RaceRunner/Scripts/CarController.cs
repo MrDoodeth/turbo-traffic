@@ -3,12 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour
 {
-    [Header("Ride")] 
+    public bool isControllable;
+    [Header("Ride")]
     public float maxSpeed;
-    public const float MIN_SPEED = 10f;
-    [SerializeField] private float controlSensitivity;
-    [SerializeField] private float acceleration;
-    [SerializeField] private float braking;
+    public const float MIN_SPEED = 7f;
+    public float controlSensitivity;
+    public float acceleration;
+    public float braking;
 
     [Space] 
     [Header("Animations")] 
@@ -35,7 +36,11 @@ public class CarController : MonoBehaviour
     private const float DEFAULT_BRAKING = 1f;
 
     private void Awake()
-    {
+    { 
+        Wheels = transform.GetChild(1);
+        body = transform.GetChild(0);
+        car = this.transform;
+        
         rb = GetComponent<Rigidbody>();
         wheels = Wheels.GetComponentsInChildren<Transform>();
         currentSpeed = MIN_SPEED;
@@ -43,39 +48,39 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
-        #region Movement
-
         //Input
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
-
-
-        // Обновляем скорость с учетом ускорения/торможения
-        if (vertical > 0f)
+        
+        #region Movement
+        if (isControllable)
         {
-            currentSpeed += acceleration * Time.deltaTime;
+            // Обновляем скорость с учетом ускорения/торможения
+            if (vertical > 0f)
+            {
+                currentSpeed += acceleration * Time.deltaTime;
+            }
+            else if (vertical < 0f)
+            {
+                currentSpeed -= braking * Time.deltaTime;
+            }
+            else
+            {
+                currentSpeed -= DEFAULT_BRAKING * Time.deltaTime;
+            }
+
+            if (isOnBorder)
+                currentSpeed -= braking * Time.deltaTime;
+
+            // Ограничиваем скорость до minSpeed и maxSpeed
+            currentSpeed = Mathf.Clamp(currentSpeed, MIN_SPEED, maxSpeed);
+
+            // Обновляем позицию машины
+            Vector3 moveDirection =
+                (transform.forward * currentSpeed) + (transform.right * (horizontal * controlSensitivity));
+
+            rb.MovePosition(transform.position + moveDirection * Time.fixedDeltaTime);
         }
-        else if (vertical < 0f)
-        {
-            currentSpeed -= braking * Time.deltaTime;
-        }
-        else
-        {
-            currentSpeed -= DEFAULT_BRAKING * Time.deltaTime;
-        }
-
-        if (isOnBorder)
-            currentSpeed -= braking * Time.deltaTime;
-
-        // Ограничиваем скорость до minSpeed и maxSpeed
-        currentSpeed = Mathf.Clamp(currentSpeed, MIN_SPEED, maxSpeed);
-
-        // Обновляем позицию машины
-        Vector3 moveDirection =
-            (transform.forward * currentSpeed) + (transform.right * (horizontal * controlSensitivity));
-
-        rb.MovePosition(transform.position + moveDirection * Time.fixedDeltaTime);
-
         #endregion
 
         #region Animations
@@ -86,7 +91,7 @@ public class CarController : MonoBehaviour
             wheels[i].Rotate(Vector3.right, angleBySpeed * currentSpeed * Time.deltaTime);
         }
 
-        if (!isOnBorder)
+        if (!isOnBorder && isControllable)
         {
             targetShift = Quaternion.Euler(0f, 0f, horizontal * shiftHorizontalAngle);
             targetRotation = Quaternion.Euler(0f, horizontal * rotateAngle, 0f);
@@ -114,7 +119,7 @@ public class CarController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
         }
     }
 }
