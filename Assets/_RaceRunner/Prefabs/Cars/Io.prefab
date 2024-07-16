@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 2294796318228375773}
   - component: {fileID: 5891442736865349583}
   - component: {fileID: 2369924251723860941}
+  - component: {fileID: -4179670969536185090}
   m_Layer: 0
   m_Name: Io
   m_TagString: Player
@@ -561,3 +562,25 @@ MonoBehaviour:
   rotateAngle: 5
   carTime: 40
   isOnBorder: 0
+  isControllable: 0
+--- !u!65 &-4179670969536185090
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9009836438946171567}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6332476, y: 1.1967744, z: 4.9537086}
+  m_Center: {x: 0, y: 1.0323718, z: 0}

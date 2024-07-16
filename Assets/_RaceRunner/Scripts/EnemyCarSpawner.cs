@@ -4,9 +4,6 @@ using Random = UnityEngine.Random;
 
 public class EnemyCarSpawner : MonoBehaviour
 {
-    public CarController player;
-    [Space]
-    
     [SerializeField] private EnemyCar[] cars;
     [SerializeField, Range(0f, 1f)] private float trafficDensity;
     [SerializeField] private float maxSpawnInterval;
@@ -20,9 +17,11 @@ public class EnemyCarSpawner : MonoBehaviour
     [SerializeField, Range(0f, 5f)] private float maxRandomSpawnDistance;
     private float elapsedTime;
     private List<EnemyCar> deactiveEnemyCars;
+    private CarController player;
 
     private void Awake()
     {
+        player = CarController.Instance;
         SpawnEnemies();
     }
     private void SpawnEnemies()

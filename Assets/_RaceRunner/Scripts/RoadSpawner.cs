@@ -7,15 +7,16 @@ public class RoadSpawner : MonoBehaviour
     [SerializeField] private int tilesCount = 5;
     [SerializeField] private float offset = 6.25f;
     [SerializeField] private float destroyDistance = 8;
-    public CarController player;
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
     private Queue<Road> roads;
     private Vector3 spawnPoint;
     private int countOfRoads;
+    private CarController player;
 
-    private void Awake()
+    private void Start()
     {
+        player = CarController.Instance;
         roads = new Queue<Road>(tilesCount);
         
         for (int i = 0; i < tilesCount; i++)
