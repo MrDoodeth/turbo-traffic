@@ -26,6 +26,7 @@ public class RaceManager : MonoBehaviour
     private float timeAtHighSpeed;
     private float timeAtOncomingLane;
     private int overtakingCount;
+    public static int[] gemsAmount;
 
     private void Awake()
     {

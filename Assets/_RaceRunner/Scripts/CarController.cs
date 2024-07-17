@@ -46,6 +46,7 @@ public class CarController : MonoBehaviour
     private Quaternion targetSpeedRotation;
     private const float DEFAULT_BRAKING = 1f;
     public static CarController Instance;
+    [HideInInspector] public bool isControllable = true;
 
     private void Start()
     { 
