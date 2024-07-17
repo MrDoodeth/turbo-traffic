@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,10 +40,10 @@ public class InfoPanel : MonoBehaviour
     {
         accelerationLabel.text = acceleration.ToString("N0");
         controllabilityLabel.text = controllability.ToString("N0");
-        brakingLabel.text = (braking/2).ToString("N0");
+        brakingLabel.text = braking.ToString("N0");
 
         targetAcceleration = acceleration * ratioFill;
         targetControllability = controllability * ratioFill;
-        targetBraking = (braking/2) * ratioFill;
+        targetBraking = braking * ratioFill;
     }
 }

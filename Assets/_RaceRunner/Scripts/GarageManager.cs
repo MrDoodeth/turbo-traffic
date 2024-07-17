@@ -127,9 +127,9 @@ public class GarageManager : MonoBehaviour
     }
     private void UpdateInfo()
     {
-        var acceleration = carsConfig.cars[selectedCar].car.acceleration;
-        var controllability = carsConfig.cars[selectedCar].car.controlSensitivity;
-        var braking = carsConfig.cars[selectedCar].car.braking;
+        var acceleration = carsConfig.cars[selectedCar].car.GetAcceleration();
+        var controllability = carsConfig.cars[selectedCar].car.GetSensitivity();
+        var braking = carsConfig.cars[selectedCar].car.GetBraking();
         infoPanel.SetInfo(acceleration, controllability, braking);
     }
 }

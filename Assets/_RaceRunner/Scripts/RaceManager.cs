@@ -1,6 +1,6 @@
 using System;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using YG;
 
 public class RaceManager : MonoBehaviour
@@ -8,47 +8,73 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private CarsConfig carsConfig;
     [Space] 
     
-    [SerializeField] private float distanceRatio = 0.45f;
-    [SerializeField] private float speedRatio = 1f;
-    [Space]
+    [Header("Ratios")]
+    [SerializeField] private float scoreSpeedRatio = 0.05f;
+    [SerializeField] private float scoreOncomingRatio = 2f;
     
-    [Header("Labels")] 
-    [SerializeField] private TMP_Text scoreLabel;
-    [SerializeField] private TMP_Text distanceLabel;
-    [SerializeField] private TMP_Text speedLabel;
-    public static Action<int> OnScoreUpdated;
-    public static Action OnDistanceUpdated;
-    public static Action OnSpeedUpdated;
-    private int currentScore;
+    [Header("Panels")] 
+    [SerializeField] private Image pausePanel;
+    
+    [Header("Buttons")] 
+    [SerializeField] private Button pauseButton;
+    [SerializeField] private Button resumeButton;
+
+    public const float SCORE_START_SPEED = 26.3f;
+    public static Action<int> OnOvertaking;
+    
+    public static float currentScore;
+    private float timeAtHighSpeed;
+    private float timeAtOncomingLane;
+    private int overtakingCount;
 
     private void Awake()
     {
         CarController.Instance = Instantiate(carsConfig.cars[YandexGame.savesData.currentCarIndex].car, Vector3.zero, Quaternion.identity);
     }
 
+    private void Update()
+    {
+        //Score Calculating
+        if (CarController.Instance.currentSpeed >= SCORE_START_SPEED)
+        {
+            timeAtHighSpeed += Time.deltaTime;
+            var ratio = scoreSpeedRatio;
+            if (RoadSpawner.isOncoming)
+            {
+                ratio *= scoreOncomingRatio;
+                timeAtOncomingLane += Time.deltaTime;
+            }
+            currentScore += CarController.Instance.currentSpeed * ratio * Time.deltaTime;
+        }
+    }
+
     private void OnEnable()
     {
-        OnScoreUpdated += OnScoreUpdate;
-        OnDistanceUpdated += OnDistanceUpdate;
-        OnSpeedUpdated += OnSpeedUpdate;
+        OnOvertaking += OnScoreUpdate;
+        pauseButton.onClick.AddListener(OnPausePress);
+        resumeButton.onClick.AddListener(OnResumePress);
     }
     private void OnDisable()
     {
-        OnScoreUpdated -= OnScoreUpdate;
-        OnDistanceUpdated -= OnDistanceUpdate;
-        OnSpeedUpdated -= OnSpeedUpdate;
+        OnOvertaking -= OnScoreUpdate;
+        pauseButton.onClick.RemoveListener(OnPausePress);
+        resumeButton.onClick.RemoveListener(OnResumePress);
     }
+    
     private void OnScoreUpdate(int scoreAmount)
     {
         currentScore += scoreAmount;
-        scoreLabel.text = currentScore.ToString();
+        overtakingCount++;
     }
-    private void OnDistanceUpdate()
+    private void OnPausePress()
     {
-        distanceLabel.text = (CarController.Instance.transform.position.z * distanceRatio * 0.001).ToString("F");
+        Time.timeScale = 0f;
+        pausePanel.gameObject.SetActive(true);
     }
-    private void OnSpeedUpdate()
+
+    private void OnResumePress()
     {
-        speedLabel.text = (CarController.Instance.currentSpeed * speedRatio).ToString("N0");
+        pausePanel.gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

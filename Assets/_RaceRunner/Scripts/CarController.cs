@@ -8,8 +8,19 @@ public class CarController : MonoBehaviour
     public float controlSensitivity;
     public float acceleration;
     public float braking;
+    
     public int scoreOfOvertaking = 100;
-    private const float OVERTAKING_SPEED = 28f;
+    private const float OVERTAKING_SPEED = 26.3f;
+
+    private const float SPEED_RATIO = 2.85f;
+    private const float SENSITIVITY_RATIO = 1f;
+    private const float ACCELERATION_RATIO = 1f;
+    private const float BRAKING_RATIO = 0.5f;
+
+    public float GetSpeed() => currentSpeed * SPEED_RATIO;
+    public float GetSensitivity() => controlSensitivity * SENSITIVITY_RATIO;
+    public float GetAcceleration() => acceleration * ACCELERATION_RATIO;
+    public float GetBraking() => braking * BRAKING_RATIO;
 
     [Space] 
     [Header("Animations")] 
@@ -28,14 +39,13 @@ public class CarController : MonoBehaviour
     [SerializeField] private float carTime;
     [HideInInspector] public bool isOnBorder;
     private Rigidbody rb;
-    public float currentSpeed { get; private set; }
+    public float currentSpeed;
     private Transform[] wheels;
     private Quaternion targetShift;
     private Quaternion targetRotation;
     private Quaternion targetSpeedRotation;
     private const float DEFAULT_BRAKING = 1f;
     public static CarController Instance;
-    [HideInInspector] public bool isControllable = false;
 
     private void Start()
     { 
@@ -51,8 +61,8 @@ public class CarController : MonoBehaviour
     private void Update()
     {
         //Input
-        var horizontal = isControllable ? Input.GetAxis("Horizontal") : 0f;
-        var vertical = isControllable ? Input.GetAxis("Vertical") : 0f;
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
         
         #region Movement
         // Обновляем скорость с учетом ускорения/торможения
@@ -113,11 +123,8 @@ public class CarController : MonoBehaviour
 
         #endregion
 
-        if (isControllable)
-        {
-            RaceManager.OnDistanceUpdated?.Invoke();
-            RaceManager.OnSpeedUpdated?.Invoke();
-        }
+        GameUIInfo.OnDistanceUpdated?.Invoke();
+        GameUIInfo.OnSpeedUpdated?.Invoke();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -130,6 +137,6 @@ public class CarController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (currentSpeed >= OVERTAKING_SPEED)
-            RaceManager.OnScoreUpdated?.Invoke(scoreOfOvertaking);
+            RaceManager.OnOvertaking?.Invoke(scoreOfOvertaking);
     }
 }

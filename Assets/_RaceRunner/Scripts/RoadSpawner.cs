@@ -9,10 +9,12 @@ public class RoadSpawner : MonoBehaviour
     [SerializeField] private float destroyDistance = 8;
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
+    [SerializeField] private float oncomingLaneShift;
     private Queue<Road> roads;
     private Vector3 spawnPoint;
     private int countOfRoads;
     private CarController player;
+    public static bool isOncoming;
 
     private void Start()
     {
@@ -32,10 +34,9 @@ public class RoadSpawner : MonoBehaviour
         //Constraint
         player.transform.position = new Vector3 (Mathf.Clamp(player.transform.position.x, minX, maxX), player.transform.position.y, player.transform.position.z);
 
-        if (player.transform.position.x <= minX || player.transform.position.x >= maxX)
-            player.isOnBorder = true;
-        else
-            player.isOnBorder = false;
+        player.isOnBorder = player.transform.position.x <= minX || player.transform.position.x >= maxX;
+        
+        isOncoming = player.transform.position.x <= oncomingLaneShift;
         
         if ((roads.Peek().transform.position - player.transform.position).z < -destroyDistance)
         {

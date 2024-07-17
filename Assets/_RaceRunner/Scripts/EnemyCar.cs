@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnemyCar : MonoBehaviour
@@ -24,12 +23,12 @@ public class EnemyCar : MonoBehaviour
             }
         }
     }
-
-    private void OnCollisionStay(Collision other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            manager.ReleaseEnemyCar(this);
-        }
-    }
+    //
+    // private void OnCollisionStay(Collision other)
+    // {
+    //     if (other.gameObject.CompareTag("Enemy"))
+    //     {
+    //         manager.ReleaseEnemyCar(this);
+    //     }
+    // }
 }
