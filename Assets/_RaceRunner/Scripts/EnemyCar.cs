@@ -13,6 +13,9 @@ public class EnemyCar : MonoBehaviour
     }
     private void Update()
     {
+        if (!CarController.Instance.isControllable)
+            return;
+        
         transform.Translate(Vector3.forward * (speed * Time.deltaTime));
 
         if (gameObject.activeSelf)

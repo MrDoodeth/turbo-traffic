@@ -21,7 +21,7 @@ namespace YG
         public int currentCarIndex;
         public int highScore;
         public bool[] isFreeCars = new bool[14];
-        public int moneyAmount = 1000000;
+        public int moneyAmount = 0;
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

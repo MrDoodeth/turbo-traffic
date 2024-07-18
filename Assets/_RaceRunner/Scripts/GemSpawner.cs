@@ -16,8 +16,9 @@ public class GemSpawner : MonoBehaviour
 
     private ObjectPool<Gem>[] pools;
     private float elapsedTime;
+    public static event Action<int[]> OnGemPickedUp;
 
-    private void Awake()
+    private void Start()
     {
         if (gemsPrefabs != null)
             pools = new ObjectPool<Gem>[gemsPrefabs.Length];
@@ -43,6 +44,9 @@ public class GemSpawner : MonoBehaviour
         (minSpawnInterval - maxSpawnInterval) / (maxSpeed - CarController.MIN_SPEED);
     private void Update()
     {
+        if (!CarController.Instance.isControllable)
+            return;
+        
         elapsedTime += Time.deltaTime;
         if (elapsedTime >= GetSpawnInterval())
         {
@@ -61,11 +65,11 @@ public class GemSpawner : MonoBehaviour
     
     public void ReleaseGem(Gem gem, bool isPlayer)
     {
-        // if (isPlayer)
-        // {
-        //     RaceManager.gemsAmount ??= new int[gemsPrefabs.Length];
-        //     RaceManager.gemsAmount[gem.poolIndex]++;
-        // }
+        if (isPlayer && CarController.Instance.isControllable)
+        {
+            RaceManager.gemsAmount[gem.poolIndex]++;
+            OnGemPickedUp?.Invoke(RaceManager.gemsAmount);
+        }
         pools[gem.poolIndex].Release(gem);
     }
 }

@@ -10,7 +10,7 @@ public class Gem : MonoBehaviour
     [HideInInspector] public GemSpawner gemSpawner;
     [HideInInspector] public int poolIndex;
     private const float DESTROY_DISTANCE = 10f;
-    private void Awake()
+    private void Start()
     {
         startPositionY = transform.position.y;
     }
@@ -22,7 +22,7 @@ public class Gem : MonoBehaviour
         //Rotation
         transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
         
-        if (gameObject.activeSelf)
+        if (gameObject.activeSelf && CarController.Instance.isControllable)
         {
             if (transform.position.z - CarController.Instance.transform.position.z < -DESTROY_DISTANCE)
             {
@@ -33,7 +33,7 @@ public class Gem : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (gameObject.activeSelf)
+        if (gameObject.activeSelf && !other.collider.isTrigger)
         {
             if (other.gameObject.CompareTag("Player"))
             {

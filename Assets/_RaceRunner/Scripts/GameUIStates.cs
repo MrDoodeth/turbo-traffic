@@ -17,7 +17,7 @@ public class GameUIStates : MonoBehaviour
     private Vector3 oncomingPanelPosition;
     private const float PANEl_SPEED = 10f;
     
-    private void Awake()
+    private void Start()
     {
         highSpeedPanelPosition = highSpeedPanel.transform.position;
         oncomingPanelPosition = oncomingPanel.transform.position;

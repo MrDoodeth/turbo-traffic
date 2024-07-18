@@ -19,7 +19,7 @@ public class EnemyCarSpawner : MonoBehaviour
     private List<EnemyCar> deactiveEnemyCars;
     private CarController player;
 
-    private void Awake()
+    private void Start()
     {
         player = CarController.Instance;
         SpawnEnemies();
@@ -38,6 +38,9 @@ public class EnemyCarSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (!CarController.Instance.isControllable)
+            return;
+        
         elapsedTime += Time.deltaTime;
         if (elapsedTime >= GetSpawnInterval())
         {

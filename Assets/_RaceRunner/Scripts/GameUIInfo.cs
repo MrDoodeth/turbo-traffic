@@ -4,28 +4,41 @@ using TMPro;
 
 public class GameUIInfo : MonoBehaviour
 {
-    [Header("Ratios")]
-    [SerializeField] private float distanceRatio = 1.2f;
-    
     [Header("Labels")] 
     [SerializeField] private TMP_Text scoreLabel;
     [SerializeField] private TMP_Text scoreVFX;
     [SerializeField] private TMP_Text distanceLabel;
     [SerializeField] private TMP_Text speedLabel;
+    [Space] 
+    
+    [SerializeField] private TMP_Text gem1Label;
+    [SerializeField] private TMP_Text gem2Label;
+    [SerializeField] private TMP_Text gem3Label;
+    [SerializeField] private TMP_Text gem4Label;
     public static Action OnDistanceUpdated;
     public static Action OnSpeedUpdated;
     private void OnEnable()
     {
         RaceManager.OnOvertaking += OnScoreVFXUpdate;
+        GemSpawner.OnGemPickedUp += UpdateGemsUI;
         OnDistanceUpdated += OnDistanceUpdate;
         OnSpeedUpdated += OnSpeedUpdate;
     }
     private void OnDisable()
     {
         RaceManager.OnOvertaking -= OnScoreVFXUpdate;
+        GemSpawner.OnGemPickedUp -= UpdateGemsUI;
         OnDistanceUpdated -= OnDistanceUpdate;
         OnSpeedUpdated -= OnSpeedUpdate;
     }
+    private void UpdateGemsUI(int[] gemsAmount)
+    {
+        gem1Label.text = gemsAmount[0].ToString();
+        gem2Label.text = gemsAmount[1].ToString();
+        gem3Label.text = gemsAmount[2].ToString();
+        gem4Label.text = gemsAmount[3].ToString();
+    }
+
     private void OnScoreVFXUpdate(int scoreAmount)
     {
         scoreVFX.text = $"+{scoreAmount}";
@@ -35,14 +48,17 @@ public class GameUIInfo : MonoBehaviour
     }
     private void OnDistanceUpdate()
     {
-        distanceLabel.text = (CarController.Instance.transform.position.z * distanceRatio * 0.001).ToString("F");
+        distanceLabel.text = CarController.Instance.GetDistance().ToString("F");
     }
     private void OnSpeedUpdate()
     {
-        speedLabel.text = CarController.Instance.GetSpeed().ToString("N0");
+        speedLabel.text = CarController.Instance.GetSpeed().ToString();
     }
     private void Update()
     {
-        scoreLabel.text = RaceManager.currentScore.ToString("#");
+        if (!CarController.Instance.isControllable)
+            return;
+        
+        scoreLabel.text = ((int)(RaceManager.currentScore)).ToString();
     }
 }

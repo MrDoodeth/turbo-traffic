@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -12,15 +13,18 @@ public class CarController : MonoBehaviour
     public int scoreOfOvertaking = 100;
     private const float OVERTAKING_SPEED = 26.3f;
 
-    private const float SPEED_RATIO = 2.85f;
+    private const float SPEED_RATIO = 2.86f;
+    private const float DISTANCE_RATIO = 1.2f;
     private const float SENSITIVITY_RATIO = 1f;
     private const float ACCELERATION_RATIO = 1f;
     private const float BRAKING_RATIO = 0.5f;
 
-    public float GetSpeed() => currentSpeed * SPEED_RATIO;
-    public float GetSensitivity() => controlSensitivity * SENSITIVITY_RATIO;
-    public float GetAcceleration() => acceleration * ACCELERATION_RATIO;
-    public float GetBraking() => braking * BRAKING_RATIO;
+    public int GetSpeed() => (int)(currentSpeed * SPEED_RATIO);
+    public int GetSensitivity() => (int)(controlSensitivity * SENSITIVITY_RATIO);
+    public float GetAcceleration() => (int)(acceleration * ACCELERATION_RATIO);
+    public float GetBraking() => (int)(braking * BRAKING_RATIO);
+
+    public float GetDistance() => transform.position.z * DISTANCE_RATIO * 0.001f;
 
     [Space] 
     [Header("Animations")] 
@@ -45,11 +49,13 @@ public class CarController : MonoBehaviour
     private Quaternion targetRotation;
     private Quaternion targetSpeedRotation;
     private const float DEFAULT_BRAKING = 1f;
+    private const float ACCIDENT_BRAKING = 30f;
     public static CarController Instance;
     [HideInInspector] public bool isControllable = true;
 
     private void Start()
-    { 
+    {
+        isControllable = true;
         Wheels = transform.GetChild(1);
         body = transform.GetChild(0);
         car = this.transform;
@@ -62,8 +68,8 @@ public class CarController : MonoBehaviour
     private void Update()
     {
         //Input
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        var horizontal = isControllable ? Input.GetAxis("Horizontal") : 0f;
+        var vertical = isControllable ? Input.GetAxis("Vertical") : 0f;
         
         #region Movement
         // Обновляем скорость с учетом ускорения/торможения
@@ -82,9 +88,13 @@ public class CarController : MonoBehaviour
 
         if (isOnBorder)
             currentSpeed -= braking * Time.deltaTime;
+        
+        if (!isControllable)
+            currentSpeed -= ACCIDENT_BRAKING * Time.deltaTime;
+        
 
         // Ограничиваем скорость до minSpeed и maxSpeed
-        currentSpeed = Mathf.Clamp(currentSpeed, MIN_SPEED, maxSpeed);
+        currentSpeed = Mathf.Clamp(currentSpeed, isControllable ? MIN_SPEED : 0f, maxSpeed);
 
         // Обновляем позицию машины
         Vector3 moveDirection =
@@ -130,9 +140,13 @@ public class CarController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && isControllable)
         {
-            //SceneManager.LoadScene(0);
+            //Finish
+            isControllable = false;
+            other.gameObject.GetComponent<EnemyCar>().enabled = false;
+            other.transform.SetParent(transform, true);
+            RaceManager.OnPlayerFinished?.Invoke();
         }
     }
     private void OnTriggerExit(Collider other)
