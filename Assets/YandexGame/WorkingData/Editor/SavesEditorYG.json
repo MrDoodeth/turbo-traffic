@@ -1,5 +1,5 @@
 {
-    "idSave": 67,
+    "idSave": 70,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -28,5 +28,5 @@
         false,
         false
     ],
-    "moneyAmount": 8101
+    "moneyAmount": 23429
 }

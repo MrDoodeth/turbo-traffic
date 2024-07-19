@@ -24,6 +24,7 @@ public class RaceManager : MonoBehaviour
     [Header("Panels")] 
     [SerializeField] private Image pausePanel;
     [SerializeField] private FinishPanel finishPanel;
+    [SerializeField] private Transform mobileHUD;
     
     [Header("Buttons")] 
     [SerializeField] private Button pauseButton;
@@ -43,11 +44,13 @@ public class RaceManager : MonoBehaviour
     private void Awake()
     {
         CarController.Instance = Instantiate(carsConfig.cars[YandexGame.savesData.currentCarIndex].car, Vector3.zero, Quaternion.identity);
+        mobileHUD.gameObject.SetActive(YandexGame.EnvironmentData.isMobile);
     }
 
     private void Start()
     {
         gemsAmount = new int[4];
+        currentScore = 0;
     }
 
     private void Update()
