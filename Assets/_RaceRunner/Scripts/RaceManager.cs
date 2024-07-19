@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 using YG;
 
 public class RaceManager : MonoBehaviour
@@ -22,15 +21,11 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private float oncomingMoneyRatio;
     
     [Header("Panels")] 
-    [SerializeField] private Image pausePanel;
     [SerializeField] private FinishPanel finishPanel;
     [SerializeField] private Transform mobileHUD;
-    
-    [Header("Buttons")] 
-    [SerializeField] private Button pauseButton;
-    [SerializeField] private Button resumeButton;
 
     public const float SCORE_START_SPEED = 26.3f;
+    private const string LEADERBOARD_NAME = "Score";
     public static Action<int> OnOvertaking;
     public static Action OnPlayerFinished;
     
@@ -63,7 +58,7 @@ public class RaceManager : MonoBehaviour
         {
             timeAtHighSpeed += Time.deltaTime;
             var ratio = scoreSpeedRatio;
-            if (RoadSpawner.isOncoming)
+            if (CarController.isOncoming)
             {
                 ratio *= scoreOncomingRatio;
                 timeAtOncomingLane += Time.deltaTime;
@@ -76,15 +71,11 @@ public class RaceManager : MonoBehaviour
     {
         OnOvertaking += OnScoreUpdate;
         OnPlayerFinished += Finish;
-        pauseButton.onClick.AddListener(OnPausePress);
-        resumeButton.onClick.AddListener(OnResumePress);
     }
     private void OnDisable()
     {
         OnOvertaking -= OnScoreUpdate;
         OnPlayerFinished -= Finish;
-        pauseButton.onClick.RemoveListener(OnPausePress);
-        resumeButton.onClick.RemoveListener(OnResumePress);
     }
     
     private void OnScoreUpdate(int scoreAmount)
@@ -92,16 +83,17 @@ public class RaceManager : MonoBehaviour
         currentScore += scoreAmount;
         overtakingCount++;
     }
-    private void OnPausePress()
-    {
-        Time.timeScale = 0f;
-        pausePanel.gameObject.SetActive(true);
-    }
 
-    private void OnResumePress()
+    private static void TrySaveNewScore()
     {
-        pausePanel.gameObject.SetActive(false);
-        Time.timeScale = 1f;
+        var score = Mathf.RoundToInt(currentScore);
+        if (YandexGame.savesData.highScore < score)
+        {
+            YandexGame.savesData.highScore = score;
+            YandexGame.NewLeaderboardScores(LEADERBOARD_NAME, score);
+            YandexGame.SaveProgress();
+        }
+            
     }
 
     private async void Finish()
@@ -121,6 +113,7 @@ public class RaceManager : MonoBehaviour
         resultMoney = distanceMoney + overtakingMoney + highSpeedMoney + oncomingMoney + gemsMoney;
         
         YandexGame.savesData.moneyAmount += resultMoney;
+        TrySaveNewScore();
         YandexGame.SaveProgress();
         
         finishPanel.targetScoreValue = currentScore;

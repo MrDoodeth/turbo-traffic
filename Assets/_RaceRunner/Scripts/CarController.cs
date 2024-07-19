@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +9,10 @@ public class CarController : MonoBehaviour
     public float controlSensitivity;
     public float acceleration;
     public float braking;
+
+    private const float MIN_X_BORDER = -6.764f;
+    private const float MAX_X_BORDER = 6.764f;
+    private const float ONCOMING_LANE_SHIFT = -0.5416915f;
     
     public int scoreOfOvertaking = 100;
     private const float OVERTAKING_SPEED = 26.3f;
@@ -25,7 +27,6 @@ public class CarController : MonoBehaviour
     public int GetSensitivity() => (int)(controlSensitivity * SENSITIVITY_RATIO);
     public float GetAcceleration() => (int)(acceleration * ACCELERATION_RATIO);
     public float GetBraking() => (int)(braking * BRAKING_RATIO);
-
     public float GetDistance() => transform.position.z * DISTANCE_RATIO * 0.001f;
 
     [Space] 
@@ -44,6 +45,7 @@ public class CarController : MonoBehaviour
     [SerializeField, Range(0.01f, 60f)] private float rotateAngle;
     [SerializeField] private float carTime;
     [HideInInspector] public bool isOnBorder;
+    public static bool isOncoming;
     private Rigidbody rb;
     public float currentSpeed;
     private Transform[] wheels;
@@ -93,6 +95,9 @@ public class CarController : MonoBehaviour
         var horizontal = inputVector2.x;
         var vertical = inputVector2.y;
         
+        isOnBorder = transform.position.x is <= MIN_X_BORDER or >= MAX_X_BORDER;
+        isOncoming = transform.position.x <= ONCOMING_LANE_SHIFT;
+        
         #region Movement
         // Обновляем скорость с учетом ускорения/торможения
         if (vertical > 0f)
@@ -121,8 +126,12 @@ public class CarController : MonoBehaviour
         // Обновляем позицию машины
         Vector3 moveDirection =
             (transform.forward * currentSpeed) + (transform.right * (horizontal * controlSensitivity));
-
+        
+        
         rb.MovePosition(transform.position + moveDirection * Time.fixedDeltaTime);
+        
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, MIN_X_BORDER, MAX_X_BORDER), transform.position.y,
+            transform.position.z);
         #endregion
 
         #region Animations

@@ -37,7 +37,7 @@ public class GameUIStates : MonoBehaviour
             highSpeedSession += Time.deltaTime;
             highSpeedLabel.text = highSpeedSession.ToString("F");
             
-            if (RoadSpawner.isOncoming)
+            if (CarController.isOncoming)
             {
                 oncomingSession += Time.deltaTime;
                 targetOncomingPanelPosition = new Vector3(-oncomingPanelPosition.x, oncomingPanelPosition.y,

@@ -1,5 +1,5 @@
 {
-    "idSave": 74,
+    "idSave": 92,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -10,8 +10,8 @@
         true,
         false
     ],
-    "currentCarIndex": 0,
-    "highScore": 0,
+    "currentCarIndex": 7,
+    "highScore": 805,
     "isFreeCars": [
         true,
         false,
@@ -20,7 +20,7 @@
         false,
         false,
         true,
-        false,
+        true,
         false,
         false,
         false,
@@ -28,5 +28,5 @@
         false,
         false
     ],
-    "moneyAmount": 36040
+    "moneyAmount": 61175
 }
