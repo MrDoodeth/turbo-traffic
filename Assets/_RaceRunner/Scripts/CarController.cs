@@ -1,5 +1,7 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CarController : MonoBehaviour
 {
@@ -53,6 +55,24 @@ public class CarController : MonoBehaviour
     public static CarController Instance;
     [HideInInspector] public bool isControllable = true;
 
+    private DefaultInputActions controller;
+    private Vector2 inputVector2;
+
+    private void Awake()
+    {
+        controller = new DefaultInputActions();
+    }
+
+    private void OnEnable()
+    {
+        controller.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controller.Disable();
+    }
+
     private void Start()
     {
         isControllable = true;
@@ -68,8 +88,10 @@ public class CarController : MonoBehaviour
     private void Update()
     {
         //Input
-        var horizontal = isControllable ? Input.GetAxis("Horizontal") : 0f;
-        var vertical = isControllable ? Input.GetAxis("Vertical") : 0f;
+        var targetInputVector2 = isControllable ? controller.Player.Move.ReadValue<Vector2>() : Vector2.zero;
+        inputVector2 = Vector2.Lerp(inputVector2, targetInputVector2, controlSensitivity * Time.deltaTime);
+        var horizontal = inputVector2.x;
+        var vertical = inputVector2.y;
         
         #region Movement
         // Обновляем скорость с учетом ускорения/торможения
