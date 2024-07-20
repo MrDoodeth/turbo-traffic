@@ -53,7 +53,7 @@ public class CarController : MonoBehaviour
     private Quaternion targetRotation;
     private Quaternion targetSpeedRotation;
     private const float DEFAULT_BRAKING = 1f;
-    private const float ACCIDENT_BRAKING = 30f;
+    private const float ACCIDENT_BRAKING = 55f;
     public static CarController Instance;
     [HideInInspector] public bool isControllable = true;
 
@@ -100,11 +100,11 @@ public class CarController : MonoBehaviour
         
         #region Movement
         // Обновляем скорость с учетом ускорения/торможения
-        if (vertical > 0f)
+        if (vertical > 0.15f)
         {
             currentSpeed += acceleration * Time.deltaTime;
         }
-        else if (vertical < 0f)
+        else if (vertical < -0.15f)
         {
             currentSpeed -= braking * Time.deltaTime;
         }

@@ -1844,7 +1844,17 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c1e21afbf2dfeed4d91ddf7260c81fa5,
         type: 3}
       propertyPath: m_CastShadows
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c1e21afbf2dfeed4d91ddf7260c81fa5,
+        type: 3}
+      propertyPath: m_ImportantGI
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c1e21afbf2dfeed4d91ddf7260c81fa5,
+        type: 3}
+      propertyPath: m_PreserveUVs
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c1e21afbf2dfeed4d91ddf7260c81fa5,
         type: 3}
@@ -3820,7 +3830,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9978667, g: 1, b: 0.936, a: 1}
-  m_Intensity: 15
+  m_Intensity: 16
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

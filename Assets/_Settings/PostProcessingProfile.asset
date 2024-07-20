@@ -58,10 +58,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.05
+    m_Value: 1.18
   intensity:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 30.43
   scatter:
     m_OverrideState: 1
     m_Value: 0.3
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: SampleSceneProfile
+  m_Name: PostProcessingProfile
   m_EditorClassIdentifier: 
   components:
   - {fileID: -7893295128165547882}
@@ -128,26 +128,26 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
+          time: 0.008333334
           value: 0
           inSlope: 0
-          outSlope: 2.0139859
+          outSlope: 1.8639054
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
           time: 0.225
-          value: 0.17751479
-          inSlope: 1
-          outSlope: 1
+          value: 0.30177516
+          inSlope: 1.3313612
+          outSlope: 1.3313612
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.8361111
-          value: 0.75739646
+          time: 0.8055556
+          value: 0.89349115
           inSlope: 1.3754861
           outSlope: 1.3754861
           tangentMode: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
+          time: 0.99722224
           value: 1
           inSlope: 1
           outSlope: 0
@@ -326,10 +326,10 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.35
   contrast:
     m_OverrideState: 1
-    m_Value: 15
+    m_Value: -1
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -338,4 +338,4 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 45
