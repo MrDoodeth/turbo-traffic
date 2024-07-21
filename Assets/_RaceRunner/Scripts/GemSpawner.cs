@@ -40,11 +40,11 @@ public class GemSpawner : MonoBehaviour
                 spawnPoints.Length, spawnPoints.Length * 2);
         }
     }
-    private float GetSpawnInterval() => maxSpawnInterval + (Mathf.Clamp(CarController.Instance.currentSpeed, 0f, maxSpeed) - CarController.MIN_SPEED) *
+    private float GetSpawnInterval() => maxSpawnInterval + (Mathf.Clamp(CarController.currentSpeed, 0f, maxSpeed) - CarController.MIN_SPEED) *
         (minSpawnInterval - maxSpawnInterval) / (maxSpeed - CarController.MIN_SPEED);
     private void Update()
     {
-        if (!CarController.Instance.isControllable)
+        if (!CarController.isControllable)
             return;
         
         elapsedTime += Time.deltaTime;
@@ -65,7 +65,7 @@ public class GemSpawner : MonoBehaviour
     
     public void ReleaseGem(Gem gem, bool isPlayer)
     {
-        if (isPlayer && CarController.Instance.isControllable)
+        if (isPlayer && CarController.isControllable)
         {
             RaceManager.gemsAmount[gem.poolIndex]++;
             OnGemPickedUp?.Invoke(RaceManager.gemsAmount);

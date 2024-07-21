@@ -38,7 +38,7 @@ public class EnemyCarSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (!CarController.Instance.isControllable)
+        if (!CarController.isControllable)
             return;
         
         elapsedTime += Time.deltaTime;
@@ -56,7 +56,7 @@ public class EnemyCarSpawner : MonoBehaviour
         }
     }
     
-    private float GetSpawnInterval() => maxSpawnInterval + (Mathf.Clamp(player.currentSpeed, 0f, maxSpeed) - CarController.MIN_SPEED) *
+    private float GetSpawnInterval() => maxSpawnInterval + (Mathf.Clamp(CarController.currentSpeed, 0f, maxSpeed) - CarController.MIN_SPEED) *
         (minSpawnInterval - maxSpawnInterval) / (maxSpeed - CarController.MIN_SPEED);
 
     private EnemyCar GetEnemyCar()
@@ -75,7 +75,7 @@ public class EnemyCarSpawner : MonoBehaviour
     
     private void SpawnEnemyCar(Transform[] spawnPoints)
     {
-        if (deactiveEnemyCars.Count == 0 || player.currentSpeed <= 10f)
+        if (deactiveEnemyCars.Count == 0 || CarController.currentSpeed <= 10f)
             return;
         
         var variant = Random.Range(0, 3);

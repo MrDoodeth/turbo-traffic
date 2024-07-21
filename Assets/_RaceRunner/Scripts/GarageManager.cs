@@ -22,6 +22,7 @@ public class GarageManager : MonoBehaviour
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
     [SerializeField] private Button playButton;
+    [SerializeField] private Button linkButton;
     [SerializeField] private Button purchaseButton;
     [Space]
     
@@ -46,6 +47,7 @@ public class GarageManager : MonoBehaviour
         foreach (var carPrefab in carsConfig.cars)
         {
             var car = Instantiate(carPrefab.car, playerCars);
+            Destroy(car.transform.GetChild(2).gameObject);
             car.enabled = false;
             car.transform.localPosition = Vector3.zero;
             car.gameObject.SetActive(false);
@@ -59,7 +61,7 @@ public class GarageManager : MonoBehaviour
         leftButton.onClick.AddListener(SwipeLeft);
         rightButton.onClick.AddListener(SwipeRight);
         playButton.onClick.AddListener(OnStartRace);
-        playButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+        linkButton.onClick.AddListener(() => Application.OpenURL("https://yandex.ru/games/developer/75165"));
         purchaseButton.onClick.AddListener(Buy);
         selectedCar = YandexGame.savesData.currentCarIndex;
         
@@ -74,7 +76,7 @@ public class GarageManager : MonoBehaviour
         leftButton.onClick.RemoveListener(SwipeLeft);
         rightButton.onClick.RemoveListener(SwipeRight);
         playButton.onClick.RemoveListener(OnStartRace);
-        playButton.onClick.RemoveListener(() => SceneManager.LoadScene(0));
+        linkButton.onClick.RemoveListener(() => Application.OpenURL("https://yandex.ru/games/developer/75165"));
         purchaseButton.onClick.RemoveListener(Buy);
     }
 
@@ -107,6 +109,7 @@ public class GarageManager : MonoBehaviour
     private void OnStartRace()
     {
         YandexGame.savesData.currentCarIndex = selectedCar;
+        SceneManager.LoadScene(0);
     }
     private void Select(int index)
     {

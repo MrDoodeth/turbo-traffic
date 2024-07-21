@@ -56,7 +56,7 @@ public class GameUIInfo : MonoBehaviour
     }
     private void Update()
     {
-        if (!CarController.Instance.isControllable)
+        if (!CarController.isControllable)
             return;
         
         scoreLabel.text = ((int)(RaceManager.currentScore)).ToString();

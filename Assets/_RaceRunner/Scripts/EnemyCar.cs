@@ -13,7 +13,7 @@ public class EnemyCar : MonoBehaviour
     }
     private void Update()
     {
-        if (!CarController.Instance.isControllable)
+        if (!CarController.isControllable)
             return;
         
         transform.Translate(Vector3.forward * (speed * Time.deltaTime));
@@ -26,12 +26,4 @@ public class EnemyCar : MonoBehaviour
             }
         }
     }
-    //
-    // private void OnCollisionStay(Collision other)
-    // {
-    //     if (other.gameObject.CompareTag("Enemy"))
-    //     {
-    //         manager.ReleaseEnemyCar(this);
-    //     }
-    // }
 }

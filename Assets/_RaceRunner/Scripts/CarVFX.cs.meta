@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 0907f1746ebf20a45b7fb945099739a4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - prefabBorderVFX: {fileID: 763799897560185547, guid: 798157bad7358b04499c9d71cd3c0d9b,
+      type: 3}
+  - prefabCrashVFX: {fileID: 8194992990867289333, guid: 99bc28c0d45f51c4fbac01080b73edc7,
+      type: 3}
+  - rightBorderPoint: {instanceID: 0}
+  - leftBorderPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

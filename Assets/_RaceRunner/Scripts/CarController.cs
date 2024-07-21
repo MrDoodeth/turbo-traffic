@@ -44,10 +44,10 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform car;
     [SerializeField, Range(0.01f, 60f)] private float rotateAngle;
     [SerializeField] private float carTime;
-    [HideInInspector] public bool isOnBorder;
+    public static bool isOnBorder;
     public static bool isOncoming;
     private Rigidbody rb;
-    public float currentSpeed;
+    public static float currentSpeed;
     private Transform[] wheels;
     private Quaternion targetShift;
     private Quaternion targetRotation;
@@ -55,7 +55,7 @@ public class CarController : MonoBehaviour
     private const float DEFAULT_BRAKING = 1f;
     private const float ACCIDENT_BRAKING = 55f;
     public static CarController Instance;
-    [HideInInspector] public bool isControllable = true;
+    public static bool isControllable = true;
 
     private DefaultInputActions controller;
     private Vector2 inputVector2;
@@ -73,6 +73,8 @@ public class CarController : MonoBehaviour
     private void OnDisable()
     {
         controller.Disable();
+        isOnBorder = false;
+        isOncoming = false;
     }
 
     private void Start()
@@ -85,6 +87,8 @@ public class CarController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         wheels = Wheels.GetComponentsInChildren<Transform>();
         currentSpeed = MIN_SPEED;
+        isOnBorder = false;
+        isOncoming = false;
     }
 
     private void Update()

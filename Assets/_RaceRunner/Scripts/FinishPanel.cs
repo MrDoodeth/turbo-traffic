@@ -1,14 +1,15 @@
-using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 
 public class FinishPanel : MonoBehaviour
 {
     [SerializeField] private Button garageButton;
     [SerializeField] private Button replayButton;
+    [SerializeField] private Button X2AdButton;
     [Space]
     
     [SerializeField] private TMP_Text scoreLabel;
@@ -86,8 +87,11 @@ public class FinishPanel : MonoBehaviour
 
     private void OnEnable()
     {
+        YandexGame.RewardVideoEvent += OnX2Ad;
+        
         garageButton.onClick.AddListener(() => SceneManager.LoadScene(1));
         replayButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+        X2AdButton.onClick.AddListener(() => YandexGame.RewVideoShow((int)TypeOfAd.X2));
         
         gem1PriceLabel.text = gem1Price.ToString();
         gem2PriceLabel.text = gem2Price.ToString();
@@ -119,14 +123,29 @@ public class FinishPanel : MonoBehaviour
             .Insert(duration * 5 , DOTween.To(() => gemsValueMoney, x => gemsValueMoney = x, targetGemsValueMoney, duration))
             
             .Append(DOTween.To(() => resultValueMoney, x => resultValueMoney = x, targetResultValueMoney, duration))
-            .Append(garageButton.transform.DOScale(Vector3.one, duration))
-            .Insert(duration * 7 , replayButton.transform.DOScale(Vector3.one, duration));
+            .Append(X2AdButton.transform.DOScale(Vector3.one, duration))
+            .Insert(duration * 8 , garageButton.transform.DOScale(Vector3.one, duration))
+            .Insert(duration * 8 , replayButton.transform.DOScale(Vector3.one, duration));
+    }
+
+    private void OnX2Ad(int index)
+    {
+        if (index == (int)TypeOfAd.X2)
+        {
+            X2AdButton.interactable = false;
+            DOTween.Sequence()
+                .Append(DOTween.To(() => resultValueMoney, x => resultValueMoney = x, targetResultValueMoney, duration))
+                .Insert(0, X2AdButton.transform.DOScale(Vector3.zero, duration));
+        }
     }
 
     private void OnDisable()
     {
         garageButton.onClick.RemoveListener(() => SceneManager.LoadScene(1));
         replayButton.onClick.RemoveListener(() => SceneManager.LoadScene(0));
+        X2AdButton.onClick.RemoveListener(() => YandexGame.RewVideoShow((int)TypeOfAd.X2));
+        
+        YandexGame.RewardVideoEvent -= OnX2Ad;
     }
 
     private void Update()

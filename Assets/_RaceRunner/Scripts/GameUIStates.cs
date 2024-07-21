@@ -29,7 +29,7 @@ public class GameUIStates : MonoBehaviour
         Vector3 targetHighSpeedPanelPosition;
         Vector3 targetOncomingPanelPosition;
         
-        if (CarController.Instance.currentSpeed >= RaceManager.SCORE_START_SPEED)
+        if (CarController.currentSpeed >= RaceManager.SCORE_START_SPEED)
         {
             targetHighSpeedPanelPosition = new Vector3(-highSpeedPanelPosition.x, highSpeedPanelPosition.y,
                 highSpeedPanelPosition.z);

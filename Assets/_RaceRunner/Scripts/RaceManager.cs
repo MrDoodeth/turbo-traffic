@@ -26,14 +26,15 @@ public class RaceManager : MonoBehaviour
 
     public const float SCORE_START_SPEED = 26.3f;
     private const string LEADERBOARD_NAME = "Score";
+    private bool isRespawned;
     public static Action<int> OnOvertaking;
     public static Action OnPlayerFinished;
-    
+
     public static float currentScore;
-    private float timeAtHighSpeed;
-    private float timeAtOncomingLane;
-    private int overtakingCount;
     public static int[] gemsAmount = new int[4];
+    private static float timeAtHighSpeed;
+    private static float timeAtOncomingLane;
+    private static int overtakingCount;
     private int resultMoney;
 
     private void Awake()
@@ -50,11 +51,11 @@ public class RaceManager : MonoBehaviour
 
     private void Update()
     {
-        if (!CarController.Instance.isControllable)
+        if (!CarController.isControllable)
             return;
         
         //Score Calculating
-        if (CarController.Instance.currentSpeed >= SCORE_START_SPEED)
+        if (CarController.currentSpeed >= SCORE_START_SPEED)
         {
             timeAtHighSpeed += Time.deltaTime;
             var ratio = scoreSpeedRatio;
@@ -63,7 +64,7 @@ public class RaceManager : MonoBehaviour
                 ratio *= scoreOncomingRatio;
                 timeAtOncomingLane += Time.deltaTime;
             }
-            currentScore += CarController.Instance.currentSpeed * ratio * Time.deltaTime;
+            currentScore += CarController.currentSpeed * ratio * Time.deltaTime;
         }
     }
 
@@ -71,11 +72,13 @@ public class RaceManager : MonoBehaviour
     {
         OnOvertaking += OnScoreUpdate;
         OnPlayerFinished += Finish;
+        YandexGame.RewardVideoEvent += ShowX2Ad;
     }
     private void OnDisable()
     {
         OnOvertaking -= OnScoreUpdate;
         OnPlayerFinished -= Finish;
+        YandexGame.RewardVideoEvent -= ShowX2Ad;
     }
     
     private void OnScoreUpdate(int scoreAmount)
@@ -95,7 +98,15 @@ public class RaceManager : MonoBehaviour
         }
             
     }
-
+    private void ShowX2Ad(int index)
+    {
+        if (index == (int)TypeOfAd.X2)
+        {
+            YandexGame.savesData.moneyAmount += resultMoney;
+            finishPanel.targetResultValueMoney = resultMoney * 2;
+            YandexGame.SaveProgress();
+        }
+    }
     private async void Finish()
     {
         var distanceMoney = Mathf.RoundToInt(CarController.Instance.GetDistance() * distanceMoneyRatio);
