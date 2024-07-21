@@ -26,7 +26,7 @@ public class PauseManager : MonoBehaviour
         pauseButton.onClick.RemoveListener(OnPausePress);
         resumeButton.onClick.RemoveListener(OnResumePress);
         garageButton.onClick.RemoveListener(OnGaragePress);
-        RaceManager.OnPlayerFinished += () => pauseButton.interactable = false;
+        RaceManager.OnPlayerFinished -= () => pauseButton.interactable = false;
     }
     private void OnPausePress()
     {

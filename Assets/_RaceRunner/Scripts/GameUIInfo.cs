@@ -23,6 +23,8 @@ public class GameUIInfo : MonoBehaviour
         GemSpawner.OnGemPickedUp += UpdateGemsUI;
         OnDistanceUpdated += OnDistanceUpdate;
         OnSpeedUpdated += OnSpeedUpdate;
+
+        UpdateGemsUI(RaceManager.gemsAmount);
     }
     private void OnDisable()
     {
@@ -56,9 +58,6 @@ public class GameUIInfo : MonoBehaviour
     }
     private void Update()
     {
-        if (!CarController.isControllable)
-            return;
-        
         scoreLabel.text = ((int)(RaceManager.currentScore)).ToString();
     }
 }

@@ -89,7 +89,11 @@ public class FinishPanel : MonoBehaviour
     {
         YandexGame.RewardVideoEvent += OnX2Ad;
         
-        garageButton.onClick.AddListener(() => SceneManager.LoadScene(1));
+        garageButton.onClick.AddListener(() =>
+        {
+            RaceManager.isRespawned = false;
+            SceneManager.LoadScene(1);
+        });
         replayButton.onClick.AddListener(() => SceneManager.LoadScene(0));
         X2AdButton.onClick.AddListener(() => YandexGame.RewVideoShow((int)TypeOfAd.X2));
         
@@ -141,7 +145,11 @@ public class FinishPanel : MonoBehaviour
 
     private void OnDisable()
     {
-        garageButton.onClick.RemoveListener(() => SceneManager.LoadScene(1));
+        garageButton.onClick.RemoveListener(() =>
+        {
+            RaceManager.isRespawned = false;
+            SceneManager.LoadScene(1);
+        });
         replayButton.onClick.RemoveListener(() => SceneManager.LoadScene(0));
         X2AdButton.onClick.RemoveListener(() => YandexGame.RewVideoShow((int)TypeOfAd.X2));
         
