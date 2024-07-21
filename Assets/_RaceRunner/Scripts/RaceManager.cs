@@ -47,9 +47,6 @@ public class RaceManager : MonoBehaviour
 
     private void Update()
     {
-        if (!CarController.isControllable)
-            return;
-        
         //Score Calculating
         if (CarController.currentSpeed >= SCORE_START_SPEED)
         {

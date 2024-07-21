@@ -34,6 +34,11 @@ public class GarageManager : MonoBehaviour
     private readonly List<CarController> cars = new List<CarController>();
     public static event Action OnUIUpdated;
 
+    private void Awake()
+    {
+        QualitySettings.SetQualityLevel(YandexGame.savesData.qualityIndex);
+    }
+
     private void OnUIUpdate()
     {
         moneyLabel.text = YandexGame.savesData.moneyAmount.ToString();

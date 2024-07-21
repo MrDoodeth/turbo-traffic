@@ -23,6 +23,8 @@ namespace YG
         public bool[] isFreeCars = new bool[20];
         public int moneyAmount = 0;
 
+        public int qualityIndex = 2;
+
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 
 
