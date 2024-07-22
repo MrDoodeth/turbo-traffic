@@ -302,7 +302,13 @@ MonoBehaviour:
     it: 
     de: 
     hi: 
-  purshasesSimulation: []
+  purshasesSimulation:
+  - id: money
+    title: "\u0414\u0435\u043D\u044C\u0433\u0438"
+    description: "\u041D\u0430\u0447\u0438\u0441\u043B\u044F\u0435\u0442 100000 \u0434\u0435\u043D\u0435\u0433"
+    imageURI: 
+    priceValue: 49
+    consumed: 0
   metricaEnable: 0
   metricaCounterID: 0
   debug: 1

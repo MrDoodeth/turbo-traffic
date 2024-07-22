@@ -32,7 +32,7 @@ public class GarageManager : MonoBehaviour
     [SerializeField] private TMP_Text highScoreLabel;
     private int selectedCar;
     private readonly List<CarController> cars = new List<CarController>();
-    public static event Action OnUIUpdated;
+    public static Action OnUIUpdated;
 
     private void Awake()
     {
