@@ -50,6 +50,7 @@ public class Gem : MonoBehaviour
                 gemSpawner.ReleaseGem(this, true);
                 currentGemVFX.transform.position = transform.position;
                 currentGemVFX.Play();
+                AudioManager.Instance.PlayGemSound();
             }
             else
             {

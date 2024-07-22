@@ -26,19 +26,16 @@ public class ShopPanel : MonoBehaviour
         adMoneyLabel.text = adMoneyValue.ToString("N0");
         buyYanMoneyLabel.text = buyYanMoneyValue.ToString("N0");
         
-        rateButton.onClick.AddListener(() => YandexGame.ReviewShow(true));
-        adButton.onClick.AddListener(() => YandexGame.RewVideoShow((int)TypeOfAd.Money));
-        buyYanButton.onClick.AddListener(() => YandexGame.BuyPayments("money"));
         YandexGame.ReviewSentEvent += OnLeftReview;
         YandexGame.RewardVideoEvent += OnShowAd;
         YandexGame.PurchaseSuccessEvent += OnSuccessPurchase;
     }
 
+    public void ShowReview() => YandexGame.ReviewShow(true);
+    public void ShowAd() => YandexGame.RewVideoShow((int)TypeOfAd.Money);
+    public void GetPayment() => YandexGame.BuyPayments("money");
     private void OnDisable()
     {
-        rateButton.onClick.RemoveListener(() => YandexGame.ReviewShow(true));
-        adButton.onClick.RemoveListener(() => YandexGame.RewVideoShow((int)TypeOfAd.Money));
-        buyYanButton.onClick.RemoveListener(() => YandexGame.BuyPayments("money"));
         YandexGame.ReviewSentEvent -= OnLeftReview;
         YandexGame.RewardVideoEvent -= OnShowAd;
         YandexGame.PurchaseSuccessEvent -= OnSuccessPurchase;
@@ -48,10 +45,10 @@ public class ShopPanel : MonoBehaviour
     {
         if (action)
         {
-            AudioManager.Instance.PlayMoneySound();
             YandexGame.savesData.moneyAmount += rateMoneyValue;
             GarageManager.OnUIUpdated?.Invoke();
             YandexGame.SaveProgress();
+            AudioManager.Instance.PlayMoneySound();
         }
     }
     

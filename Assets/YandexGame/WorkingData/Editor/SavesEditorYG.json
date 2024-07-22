@@ -1,5 +1,5 @@
 {
-  "idSave": 1216,
+  "idSave": 3957,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -11,29 +11,31 @@
     false
   ],
   "currentCarIndex": 0,
-  "highScore": 529,
+  "highScore": 3550,
   "isFreeCars": [
     true,
     false,
     false,
     false,
+    true,
     false,
+    true,
     false,
+    true,
+    true,
+    true,
+    true,
+    true,
     false,
+    true,
     false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
+    true,
+    true,
+    true,
+    true
   ],
-  "moneyAmount": 1856754,
-  "qualityIndex": 2
+  "moneyAmount": 1068828,
+  "qualityIndex": 2,
+  "isSoundActive": true,
+  "isMusicActive": false
 }

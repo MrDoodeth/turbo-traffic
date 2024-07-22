@@ -24,6 +24,8 @@ namespace YG
         public int moneyAmount = 0;
 
         public int qualityIndex = 2;
+        public bool isSoundActive = true;
+        public bool isMusicActive = true;
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using YG;
 
@@ -16,14 +17,12 @@ public class GarageManager : MonoBehaviour
     [SerializeField] private Transform playerCars;
     [SerializeField] private InfoPanel infoPanel;
     [SerializeField] private Image lockImage;
+    [SerializeField] private SettingPanel settingPanel;
     [Space]
     
     [Header("Buttons")]
-    [SerializeField] private Button leftButton;
-    [SerializeField] private Button rightButton;
     [SerializeField] private Button playButton;
-    [SerializeField] private Button linkButton;
-    [SerializeField] private Button purchaseButton;
+    [SerializeField] private Button buyButton;
     [Space]
     
     [Header("Labels")]
@@ -45,8 +44,17 @@ public class GarageManager : MonoBehaviour
         highScoreLabel.text = YandexGame.savesData.highScore.ToString();
     }
 
+    private void Start()
+    {
+        settingPanel.UpdateSound();
+        settingPanel.UpdateMusic();
+    }
+
     private void OnEnable()
     {
+        settingPanel.UpdateSound();
+        settingPanel.UpdateMusic();
+        
         OnUIUpdated += OnUIUpdate;
             
         foreach (var carPrefab in carsConfig.cars)
@@ -63,11 +71,6 @@ public class GarageManager : MonoBehaviour
         
         cars[YandexGame.savesData.currentCarIndex].gameObject.SetActive(true);
         
-        leftButton.onClick.AddListener(SwipeLeft);
-        rightButton.onClick.AddListener(SwipeRight);
-        playButton.onClick.AddListener(OnStartRace);
-        linkButton.onClick.AddListener(() => Application.OpenURL("https://yandex.ru/games/developer/75165"));
-        purchaseButton.onClick.AddListener(Buy);
         selectedCar = YandexGame.savesData.currentCarIndex;
         
         OnUIUpdated?.Invoke();
@@ -77,15 +80,9 @@ public class GarageManager : MonoBehaviour
     private void OnDisable()
     {
         OnUIUpdated -= OnUIUpdate;
-        
-        leftButton.onClick.RemoveListener(SwipeLeft);
-        rightButton.onClick.RemoveListener(SwipeRight);
-        playButton.onClick.RemoveListener(OnStartRace);
-        linkButton.onClick.RemoveListener(() => Application.OpenURL("https://yandex.ru/games/developer/75165"));
-        purchaseButton.onClick.RemoveListener(Buy);
     }
 
-    private void Buy()
+    public void Buy()
     {
         lockImage.gameObject.SetActive(false);
         playButton.interactable = true;
@@ -95,7 +92,7 @@ public class GarageManager : MonoBehaviour
         AudioManager.Instance.PlayBuySound();
         OnUIUpdated?.Invoke();
     }
-    private void SwipeLeft()
+    public void SwipeLeft()
     {
         if (selectedCar <= 0)
             selectedCar = cars.Count - 1;
@@ -103,7 +100,7 @@ public class GarageManager : MonoBehaviour
             selectedCar--;
         Select(selectedCar);
     }
-    private void SwipeRight()
+    public void SwipeRight()
     {
         if (selectedCar >= cars.Count - 1)
             selectedCar = 0;
@@ -111,8 +108,9 @@ public class GarageManager : MonoBehaviour
             selectedCar++;
         Select(selectedCar);
     }
+    public void ShowURL() => Application.OpenURL("https://yandex.ru/games/developer/75165");
 
-    private void OnStartRace()
+    public void OnStartRace()
     {
         YandexGame.savesData.currentCarIndex = selectedCar;
         SceneManager.LoadScene(0);
@@ -129,7 +127,7 @@ public class GarageManager : MonoBehaviour
         lockImage.gameObject.SetActive(!isFreeCar);
         priceLabel.text = carsConfig.cars[selectedCar].price.ToString();
         playButton.interactable = isFreeCar;
-        purchaseButton.interactable = YandexGame.savesData.moneyAmount >= carsConfig.cars[selectedCar].price;
+        buyButton.interactable = YandexGame.savesData.moneyAmount >= carsConfig.cars[selectedCar].price;
         
         //InfoPanel
         UpdateInfo();

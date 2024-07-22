@@ -1,4 +1,7 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using YG;
 
@@ -6,10 +9,23 @@ public class SettingPanel : MonoBehaviour
 {
     [SerializeField] private ToggleGroup qualityToggleGroup;
     [SerializeField] private ToggleGroup languageToggleGroup;
+    [Space] 
+    
+    [SerializeField] private AudioMixer audioMixer;
+    [Space] 
+    
     [SerializeField] private Button soundButton;
+    [SerializeField] private Sprite onSound;
+    [SerializeField] private Sprite offSound;
+    [Space] 
+    
     [SerializeField] private Button musicButton;
+    [SerializeField] private Sprite onMusic;
+    [SerializeField] private Sprite offMusic;
     private Toggle[] qualityToggles;
     private Toggle[] languageToggles;
+    private Image soundImage;
+    private Image musicImage;
 
     private void Awake()
     {
@@ -21,6 +37,14 @@ public class SettingPanel : MonoBehaviour
     {
         qualityToggles[YandexGame.savesData.qualityIndex].isOn = true;
         
+        UpdateSound();
+        UpdateMusic();
+
+        UpdateLanguage();
+    }
+    
+    private void UpdateLanguage()
+    {
         switch (YandexGame.savesData.language)
         {
             case "ru":
@@ -34,7 +58,6 @@ public class SettingPanel : MonoBehaviour
                 break;
         }
     }
-
     public void SetQuality(int index)
     {
         QualitySettings.SetQualityLevel(index);
@@ -46,7 +69,59 @@ public class SettingPanel : MonoBehaviour
     public void SetLanguage(string local)
     {
         YandexGame.SwitchLanguage(local);
-        YandexGame.SaveProgress();
         AudioManager.Instance.PlayClickSound();
+    }
+
+    public void UpdateSound()
+    {
+        soundImage = soundButton.GetComponent<Image>();
+        musicImage = musicButton.GetComponent<Image>();
+        
+        if (YandexGame.savesData.isSoundActive)
+        {
+            soundImage.sprite = onSound;
+            audioMixer.SetFloat("soundVolume", 0f);
+        }
+        else
+        {
+            soundImage.sprite = offSound;
+            audioMixer.SetFloat("soundVolume", -80f);
+        }
+    }
+
+    public void UpdateMusic()
+    {
+        soundImage = soundButton.GetComponent<Image>();
+        musicImage = musicButton.GetComponent<Image>();
+        
+        if (YandexGame.savesData.isMusicActive)
+        {
+            musicImage.sprite = onMusic;
+            audioMixer.SetFloat("musicVolume", 0f);
+        }
+        else
+        {
+            musicImage.sprite = offMusic;
+            audioMixer.SetFloat("musicVolume", -80f);
+        }
+    }
+
+    private void Update()
+    {
+        UpdateLanguage();
+    }
+
+    public void SwitchSound()
+    {
+        YandexGame.savesData.isSoundActive = !YandexGame.savesData.isSoundActive;
+        YandexGame.SaveProgress();
+        UpdateSound();
+    }
+    
+    public void SwitchMusic()
+    {
+        YandexGame.savesData.isMusicActive = !YandexGame.savesData.isMusicActive;
+        YandexGame.SaveProgress();
+        UpdateMusic();
     }
 }

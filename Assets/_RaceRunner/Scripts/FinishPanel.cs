@@ -64,6 +64,84 @@ public class FinishPanel : MonoBehaviour
     [HideInInspector] public float targetGemsValueMoney;
     [HideInInspector] public float targetResultValueMoney;
     private float distanceValueMoney;
+
+    private float ScoreValue
+    {
+        get => scoreValue;
+        set
+        {
+            if (elapsedTime >= SOUND_INTERVAL)
+                AudioManager.Instance.PlayAddValueSound();
+            scoreValue = value;
+        }
+    }
+
+    private float DistanceValueMoney
+    {
+        get => distanceValueMoney;
+        set
+        {
+            if (elapsedTime >= SOUND_INTERVAL)
+                AudioManager.Instance.PlayAddValueSound();
+            distanceValueMoney = value;
+        }
+    }
+
+    private float OvertakingValueMoney
+    {
+        get => overtakingValueMoney;
+        set
+        {
+            if (elapsedTime >= SOUND_INTERVAL)
+                AudioManager.Instance.PlayAddValueSound();
+            overtakingValueMoney = value;
+        }
+    }
+
+    private float HighSpeedValueMoney
+    {
+        get => highSpeedValueMoney;
+        set
+        {
+            if (elapsedTime >= SOUND_INTERVAL)
+                AudioManager.Instance.PlayAddValueSound();
+            highSpeedValueMoney = value;
+        }
+    }
+
+    private float OncomingValueMoney
+    {
+        get => oncomingValueMoney;
+        set
+        {
+            if (elapsedTime >= SOUND_INTERVAL)
+                AudioManager.Instance.PlayAddValueSound();
+            oncomingValueMoney = value;
+        }
+    }
+
+    private float GemsValueMoney
+    {
+        get => gemsValueMoney;
+        set
+        {
+            if (elapsedTime >= SOUND_INTERVAL)
+                AudioManager.Instance.PlayAddValueSound();
+            gemsValueMoney = value;
+        }
+    }
+
+    private float ResultValueMoney
+    {
+        get => resultValueMoney;
+        set
+        {
+            if (elapsedTime >= SOUND_INTERVAL)
+                AudioManager.Instance.PlayAddValueSound();
+            resultValueMoney = value;
+        }
+    }
+
     private float overtakingValueMoney;
     private float highSpeedValueMoney;
     private float oncomingValueMoney;
@@ -85,17 +163,13 @@ public class FinishPanel : MonoBehaviour
     private float gem3Value;
     private float gem4Value;
 
+    private float elapsedTime;
+    private const float SOUND_INTERVAL = 1f;
+
     private void OnEnable()
     {
+        elapsedTime = SOUND_INTERVAL;
         YandexGame.RewardVideoEvent += OnX2Ad;
-        
-        garageButton.onClick.AddListener(() =>
-        {
-            RaceManager.isRespawned = false;
-            SceneManager.LoadScene(1);
-        });
-        replayButton.onClick.AddListener(() => SceneManager.LoadScene(0));
-        X2AdButton.onClick.AddListener(() => YandexGame.RewVideoShow((int)TypeOfAd.X2));
         
         gem1PriceLabel.text = gem1Price.ToString();
         gem2PriceLabel.text = gem2Price.ToString();
@@ -106,30 +180,35 @@ public class FinishPanel : MonoBehaviour
             .SetUpdate(UpdateType.Normal, true)
             .AppendInterval(delay)
             
-            .Append(DOTween.To(() => scoreValue, x => scoreValue = x, targetScoreValue, duration))
+            .Append(DOTween.To(() => ScoreValue, x => ScoreValue = x, targetScoreValue, duration))
             
             .Append(DOTween.To(() => distanceValue, x => distanceValue = x, targetDistanceValue, duration))
-            .Insert(duration , DOTween.To(() => distanceValueMoney, x => distanceValueMoney = x, targetDistanceValueMoney, duration))
+            .Insert(duration , DOTween.To(() => DistanceValueMoney, x => DistanceValueMoney = x, targetDistanceValueMoney, duration))
             
             .Append(DOTween.To(() => overtakingValue, x => overtakingValue = x, targetOvertakingValue, duration))
-            .Insert(duration * 2 , DOTween.To(() => overtakingValueMoney, x => overtakingValueMoney = x, targetOvertakingValueMoney, duration))
+            .Insert(duration * 2 , DOTween.To(() => OvertakingValueMoney, x => OvertakingValueMoney = x, targetOvertakingValueMoney, duration))
             
             .Append(DOTween.To(() => highSpeedValue, x => highSpeedValue = x, targetHighSpeedValue, duration))
-            .Insert(duration * 3 , DOTween.To(() => highSpeedValueMoney, x => highSpeedValueMoney = x, targetHighSpeedValueMoney, duration))
+            .Insert(duration * 3 , DOTween.To(() => HighSpeedValueMoney, x => HighSpeedValueMoney = x, targetHighSpeedValueMoney, duration))
             
             .Append(DOTween.To(() => oncomingValue, x => oncomingValue = x, targetOncomingValue, duration))
-            .Insert(duration * 4 , DOTween.To(() => oncomingValueMoney, x => oncomingValueMoney = x, targetOncomingValueMoney, duration))
+            .Insert(duration * 4 , DOTween.To(() => OncomingValueMoney, x => OncomingValueMoney = x, targetOncomingValueMoney, duration))
             
             .Insert(duration * 5 , DOTween.To(() => gem1Value, x => gem1Value = x, targetGem1Value, duration))
             .Insert(duration * 5 , DOTween.To(() => gem2Value, x => gem2Value = x, targetGem2Value, duration))
             .Insert(duration * 5 , DOTween.To(() => gem3Value, x => gem3Value = x, targetGem3Value, duration))
             .Insert(duration * 5 , DOTween.To(() => gem4Value, x => gem4Value = x, targetGem4Value, duration))
-            .Insert(duration * 5 , DOTween.To(() => gemsValueMoney, x => gemsValueMoney = x, targetGemsValueMoney, duration))
+            .Insert(duration * 5 , DOTween.To(() => GemsValueMoney, x => GemsValueMoney = x, targetGemsValueMoney, duration))
             
-            .Append(DOTween.To(() => resultValueMoney, x => resultValueMoney = x, targetResultValueMoney, duration))
+            .Append(DOTween.To(() => ResultValueMoney, x => ResultValueMoney = x, targetResultValueMoney, duration))
             .Append(X2AdButton.transform.DOScale(Vector3.one, duration))
             .Insert(duration * 8 , garageButton.transform.DOScale(Vector3.one, duration))
             .Insert(duration * 8 , replayButton.transform.DOScale(Vector3.one, duration));
+    }
+
+    private void OnDisable()
+    {
+        YandexGame.RewardVideoEvent -= OnX2Ad;
     }
 
     private void OnX2Ad(int index)
@@ -140,24 +219,27 @@ public class FinishPanel : MonoBehaviour
             DOTween.Sequence()
                 .Append(DOTween.To(() => resultValueMoney, x => resultValueMoney = x, targetResultValueMoney, duration))
                 .Insert(0, X2AdButton.transform.DOScale(Vector3.zero, duration));
+            AudioManager.Instance.PlayMoneySound();
         }
     }
 
-    private void OnDisable()
+    public void Replay()
     {
-        garageButton.onClick.RemoveListener(() =>
-        {
-            RaceManager.isRespawned = false;
-            SceneManager.LoadScene(1);
-        });
-        replayButton.onClick.RemoveListener(() => SceneManager.LoadScene(0));
-        X2AdButton.onClick.RemoveListener(() => YandexGame.RewVideoShow((int)TypeOfAd.X2));
-        
-        YandexGame.RewardVideoEvent -= OnX2Ad;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
+    public void ShowAd() => YandexGame.RewVideoShow((int)TypeOfAd.X2);
+    public void MoveToGarage()
+    {
+        RaceManager.isRespawned = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(1);
     }
 
     private void Update()
     {
+        elapsedTime += Time.deltaTime;
+        
         scoreLabel.text = Mathf.RoundToInt(scoreValue).ToString();
         
         distanceLabel.text = distanceValue.ToString("F");

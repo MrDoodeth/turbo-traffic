@@ -25,6 +25,7 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private FinishPanel finishPanel;
     [SerializeField] private Transform mobileHUD;
     [SerializeField] private Transform continuePanel;
+    [SerializeField] private SettingPanel settingPanel;
 
     public const float SCORE_START_SPEED = 26.3f;
     private const string LEADERBOARD_NAME = "Score";
@@ -63,6 +64,11 @@ public class RaceManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        settingPanel.UpdateSound();
+        settingPanel.UpdateMusic();
+    }
     private void OnEnable()
     {
         OnOvertaking += OnScoreUpdate;
@@ -91,6 +97,7 @@ public class RaceManager : MonoBehaviour
     {
         currentScore += scoreAmount;
         overtakingCount++;
+        AudioManager.Instance.PlayOvertakingSound();
     }
 
     private static void TrySaveNewScore()
@@ -117,12 +124,14 @@ public class RaceManager : MonoBehaviour
         if (index == (int)TypeOfAd.Continue)
         {
             isRespawned = true;
+            Time.timeScale = 1f;
             SceneManager.LoadScene(0);
         }
     }
     
     private async void Finish()
     {
+        AudioManager.Instance.PlayCrashSound();
         if (!isRespawned)
         {
             await Task.Delay(1000);

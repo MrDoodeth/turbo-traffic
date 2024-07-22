@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -22,12 +21,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip moneySound;
     [SerializeField] private AudioClip purchaseSound;
     [SerializeField] private AudioClip buySound;
+    [SerializeField] private AudioClip gemSound;
+    [SerializeField] private AudioClip crashSound;
+    [SerializeField] private AudioClip overtakingSound;
+    [SerializeField] private AudioClip addValueSound;
+    [SerializeField] private AudioClip screechSound;
+    [SerializeField] private AudioClip beepSound;
     public static AudioManager Instance;
-
-    private void Start()
-    {
-        Instance = this;
-    }
 
     private void Awake()
     {
@@ -41,6 +41,8 @@ public class AudioManager : MonoBehaviour
             engineSource.loop = true;
             engineSource.Play();
         }
+        
+        Instance = this;
     }
     private void Update()
     {
@@ -67,4 +69,10 @@ public class AudioManager : MonoBehaviour
     public void PlayMoneySound() => soundSource.PlayOneShot(moneySound);
     public void PlayPurchaseSound() => soundSource.PlayOneShot(purchaseSound);
     public void PlayBuySound() => soundSource.PlayOneShot(buySound);
+    public void PlayGemSound() => soundSource.PlayOneShot(gemSound);
+    public void PlayCrashSound() => soundSource.PlayOneShot(crashSound);
+    public void PlayOvertakingSound() => soundSource.PlayOneShot(overtakingSound);
+    public void PlayAddValueSound() => soundSource.PlayOneShot(addValueSound);
+    public void PlayScreechSound() => soundSource.PlayOneShot(screechSound);
+    public void PlayBeepSound() => soundSource.PlayOneShot(beepSound);
 }
