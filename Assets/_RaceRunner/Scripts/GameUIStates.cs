@@ -15,6 +15,7 @@ public class GameUIStates : MonoBehaviour
     [SerializeField] private TMP_Text oncomingLabel;
     private float oncomingSession;
     private Vector3 oncomingPanelPosition;
+    
     private const float PANEl_SPEED = 10f;
     
     private void Start()

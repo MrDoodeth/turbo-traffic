@@ -28,6 +28,7 @@ public class RaceManager : MonoBehaviour
 
     public const float SCORE_START_SPEED = 26.3f;
     private const string LEADERBOARD_NAME = "Score";
+    
     public static Action<int> OnOvertaking;
     public static Action OnPlayerFinished;
 
@@ -37,6 +38,7 @@ public class RaceManager : MonoBehaviour
     private static float timeAtHighSpeed;
     private static float timeAtOncomingLane;
     private static int overtakingCount;
+    
     private int resultMoney;
 
     private void Awake()

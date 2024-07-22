@@ -15,6 +15,7 @@ public class GameUIInfo : MonoBehaviour
     [SerializeField] private TMP_Text gem2Label;
     [SerializeField] private TMP_Text gem3Label;
     [SerializeField] private TMP_Text gem4Label;
+    
     public static Action OnDistanceUpdated;
     public static Action OnSpeedUpdated;
     private void OnEnable()

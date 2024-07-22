@@ -48,6 +48,7 @@ public class ShopPanel : MonoBehaviour
     {
         if (action)
         {
+            AudioManager.Instance.PlayMoneySound();
             YandexGame.savesData.moneyAmount += rateMoneyValue;
             GarageManager.OnUIUpdated?.Invoke();
             YandexGame.SaveProgress();
@@ -61,6 +62,7 @@ public class ShopPanel : MonoBehaviour
             YandexGame.savesData.moneyAmount += adMoneyValue;
             GarageManager.OnUIUpdated?.Invoke();
             YandexGame.SaveProgress();
+            AudioManager.Instance.PlayMoneySound();
         }
     }
     private void OnSuccessPurchase(string id)
@@ -70,6 +72,7 @@ public class ShopPanel : MonoBehaviour
             YandexGame.savesData.moneyAmount += buyYanMoneyValue;   
             GarageManager.OnUIUpdated?.Invoke();
             YandexGame.SaveProgress();
+            AudioManager.Instance.PlayPurchaseSound();
         }
     }
 }

@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using YG;
 
+#if UNITY_EDITOR
 public class GameManager : MonoBehaviour
 {
     [Button("RESET")]
@@ -11,3 +12,4 @@ public class GameManager : MonoBehaviour
         YandexGame.SaveProgress();
     }
 }
+#endif

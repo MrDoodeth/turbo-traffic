@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -42,11 +40,13 @@ public class SettingPanel : MonoBehaviour
         QualitySettings.SetQualityLevel(index);
         YandexGame.savesData.qualityIndex = index;
         YandexGame.SaveProgress();
+        AudioManager.Instance.PlayClickSound();
     }
 
     public void SetLanguage(string local)
     {
         YandexGame.SwitchLanguage(local);
         YandexGame.SaveProgress();
+        AudioManager.Instance.PlayClickSound();
     }
 }

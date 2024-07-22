@@ -92,6 +92,7 @@ public class GarageManager : MonoBehaviour
         YandexGame.savesData.isFreeCars[selectedCar] = true;
         YandexGame.savesData.currentCarIndex = selectedCar;
         YandexGame.savesData.moneyAmount -= carsConfig.cars[selectedCar].price;
+        AudioManager.Instance.PlayBuySound();
         OnUIUpdated?.Invoke();
     }
     private void SwipeLeft()

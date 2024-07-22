@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -57,12 +58,19 @@ public class CarController : MonoBehaviour
     public static CarController Instance;
     public static bool isControllable = true;
 
-    private DefaultInputActions controller;
+    public DefaultInputActions controller;
     private Vector2 inputVector2;
 
     private void Awake()
     {
         controller = new DefaultInputActions();
+        Wheels = transform.GetChild(1);
+        body = transform.GetChild(0);
+        body.AddComponent<GpuInstancerEnabler>();
+        car = this.transform;
+        
+        rb = GetComponent<Rigidbody>();
+        wheels = Wheels.GetComponentsInChildren<Transform>();
     }
 
     private void OnEnable()
@@ -80,12 +88,6 @@ public class CarController : MonoBehaviour
     private void Start()
     {
         isControllable = true;
-        Wheels = transform.GetChild(1);
-        body = transform.GetChild(0);
-        car = this.transform;
-        
-        rb = GetComponent<Rigidbody>();
-        wheels = Wheels.GetComponentsInChildren<Transform>();
         currentSpeed = MIN_SPEED;
         isOnBorder = false;
         isOncoming = false;
