@@ -15,41 +15,161 @@ MonoBehaviour:
   cars:
   - car: {fileID: 5718924904256378638, guid: 541b92425f15c3f4c86e4d6b75be1c97, type: 3}
     price: 0
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 3539540002187406771, guid: 7369f960c08da7b42bd5bb6ae454aadb, type: 3}
     price: 100
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 2369924251723860941, guid: 4b866af849de80748974e1cba5bc046d, type: 3}
     price: 200
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 8421135780640593838, guid: 55301ddd00160e1448bfdbfadc803cb4, type: 3}
     price: 300
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 5915322509630852978, guid: e299a1646bcaa3b40a44393ba6c8f5e1, type: 3}
     price: 400
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 3432776793915921340, guid: f2ac6df29abd44a4788bbc8c918938e6, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 2668049500623982556, guid: 1e393b1a6be83be44af9b159436be8c3, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 8672569141326250537, guid: b207ee19713aeef47ab93b7a29dd4010, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 4340923669495195560, guid: 81810383ece2d294ba15124ccd42210d, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: -8921850626549186947, guid: a03d20d7fbf3f5340aec96eb5f6264b0, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 3215144526060523735, guid: 37571fed096b69c42b97ec2f70ce0795, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 3497475517179037172, guid: 0afcae50e852d6a4dbea8afa54344427, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 7090732253345729085, guid: a9679bbfacaf5664597501bd4db88e1d, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: -3522305166699446211, guid: 65a58daf15869a6429df652a4ae00776, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: -3207710319377635886, guid: 1f773dd1de7f34e479706d264108e178, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: -7603162445691514467, guid: a18f6d225ff87d7429cd85114aed7cf0, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 2113228701696714896, guid: b082a5ad8952dec4aa03e49a68e5bd64, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 9107146334078877252, guid: 0c17cdf046321064cbc1f18012fa3f37, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 3254362227956025485, guid: 58e037e774df45b449b6ab5e6982ecd8, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}
   - car: {fileID: 598179733804505776, guid: 8c289fc8e20add244b2a1258d10a97ce, type: 3}
     price: 500
+    materials:
+    - {fileID: 2100000, guid: 0a5fa0e3de53444488e88fe9ce77ebee, type: 2}
+    - {fileID: 2100000, guid: 36e7c998e660c9646bec8182b09f625c, type: 2}
+    - {fileID: 2100000, guid: 8717d257f117dab42b822658c521ead1, type: 2}
+    - {fileID: 2100000, guid: ca867e7691940e545bd953dbdb41dca6, type: 2}
+    - {fileID: 2100000, guid: fe2f9f2ef464e704f9ba11acdca2882a, type: 2}

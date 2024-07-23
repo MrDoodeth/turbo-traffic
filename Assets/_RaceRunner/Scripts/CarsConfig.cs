@@ -8,8 +8,9 @@ public class CarsConfig : ScriptableObject
 }
 
 [Serializable]
-public struct CarProperties
+public class CarProperties
 {
     public CarController car;
     public int price;
+    public Material[] materials;
 }

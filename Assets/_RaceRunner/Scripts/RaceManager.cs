@@ -44,7 +44,10 @@ public class RaceManager : MonoBehaviour
 
     private void Awake()
     {
+        //Player spawn
         CarController.Instance = Instantiate(carsConfig.cars[YandexGame.savesData.currentCarIndex].car, Vector3.zero, Quaternion.identity);
+        //Change color
+        CarController.Instance.ChangeMaterial(carsConfig.cars[YandexGame.savesData.currentCarIndex].materials[YandexGame.savesData.currentColorIndex]);
         mobileHUD.gameObject.SetActive(YandexGame.EnvironmentData.isMobile);
     }
 

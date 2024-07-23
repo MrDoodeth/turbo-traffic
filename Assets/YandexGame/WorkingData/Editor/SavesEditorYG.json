@@ -1,5 +1,5 @@
 {
-  "idSave": 3958,
+  "idSave": 4038,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -10,31 +10,152 @@
     true,
     false
   ],
-  "currentCarIndex": 1,
-  "highScore": 3550,
-  "isFreeCars": [
-    true,
-    true,
-    false,
-    false,
-    true,
-    false,
-    true,
-    false,
-    true,
-    true,
-    true,
-    true,
-    true,
-    false,
-    true,
-    false,
-    true,
-    true,
-    true,
-    true
+  "currentCarIndex": 3,
+  "currentColorIndex": 4,
+  "highScore": 518,
+  "isFreeVariantCars": [
+    [
+      true,
+      false,
+      false,
+      false,
+      true
+    ],
+    [
+      true,
+      false,
+      false,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      false,
+      false,
+      false,
+      true
+    ],
+    [
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      true,
+      false,
+      false,
+      false,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
   ],
-  "moneyAmount": 1070634,
+  "moneyAmount": 332,
   "qualityIndex": 2,
   "isSoundActive": true,
   "isMusicActive": false

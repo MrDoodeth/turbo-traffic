@@ -18,40 +18,44 @@ public class GarageManager : MonoBehaviour
     [SerializeField] private InfoPanel infoPanel;
     [SerializeField] private Image lockImage;
     [SerializeField] private SettingPanel settingPanel;
+    [SerializeField] private ToggleGroup colorToggleGroup;
+    [SerializeField] private Transform colorPanel;
     [Space]
     
     [Header("Buttons")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button buyButton;
+    [SerializeField] private Button paintButton;
+    [FormerlySerializedAs("priceLabel")]
     [Space]
     
     [Header("Labels")]
-    [SerializeField] private TMP_Text priceLabel;
+    [SerializeField] private TMP_Text priceCarLabel;
+    [SerializeField] private TMP_Text priceColorLabel;
     [SerializeField] private TMP_Text moneyLabel;
     [SerializeField] private TMP_Text highScoreLabel;
     private int selectedCar;
+    private int selectedColor;
     private readonly List<CarController> cars = new List<CarController>();
     public static Action OnUIUpdated;
+    private const int PAINT_PRICE = 500;
+    private Toggle[] colorToggles;
+    private bool suppressToggleEvent = false;
 
     private void Awake()
     {
         QualitySettings.SetQualityLevel(YandexGame.savesData.qualityIndex);
-    }
-
-    private void OnUIUpdate()
-    {
-        moneyLabel.text = YandexGame.savesData.moneyAmount.ToString();
-        highScoreLabel.text = YandexGame.savesData.highScore.ToString();
-    }
-
-    private void Start()
-    {
-        settingPanel.UpdateSound();
-        settingPanel.UpdateMusic();
+        colorToggles = colorToggleGroup.GetComponentsInChildren<Toggle>();
     }
 
     private void OnEnable()
     {
+        settingPanel.UpdateSound();
+        settingPanel.UpdateMusic();
+        
+        selectedCar = YandexGame.savesData.currentCarIndex;
+        selectedColor = YandexGame.savesData.currentColorIndex;
+        
         settingPanel.UpdateSound();
         settingPanel.UpdateMusic();
         
@@ -67,28 +71,60 @@ public class GarageManager : MonoBehaviour
             cars.Add(car);
         }
         
-        lockImage.gameObject.SetActive(false);
+        cars[selectedCar].gameObject.SetActive(true);
+        cars[selectedCar].ChangeMaterial(carsConfig.cars[selectedCar].materials[selectedColor]);
         
-        cars[YandexGame.savesData.currentCarIndex].gameObject.SetActive(true);
-        
-        selectedCar = YandexGame.savesData.currentCarIndex;
-        
-        OnUIUpdated?.Invoke();
-        UpdateInfo();
+        foreach (var toggle in colorToggles)
+        {
+            toggle.onValueChanged.AddListener(index =>
+            {
+                if (!suppressToggleEvent)
+                {
+                    UpdateColor(Array.IndexOf(colorToggles, toggle));
+                }
+            });
+        }
+
+        OnUIUpdate();
     }
 
     private void OnDisable()
     {
         OnUIUpdated -= OnUIUpdate;
     }
+    private void OnUIUpdate()
+    {
+        suppressToggleEvent = true;
+        
+        moneyLabel.text = YandexGame.savesData.moneyAmount.ToString();
+        highScoreLabel.text = YandexGame.savesData.highScore.ToString();
+        priceColorLabel.text = PAINT_PRICE.ToString();
+        priceCarLabel.text = carsConfig.cars[selectedCar].price.ToString();
+
+        colorToggles[selectedColor].isOn = true;
+        
+        lockImage.gameObject.SetActive(!YandexGame.savesData.isFreeVariantCars[selectedCar, 0]);
+        buyButton.interactable = YandexGame.savesData.moneyAmount >= carsConfig.cars[selectedCar].price;
+        paintButton.gameObject.SetActive(YandexGame.savesData.isFreeVariantCars[selectedCar, 0] && !YandexGame.savesData.isFreeVariantCars[selectedCar, selectedColor]);
+        paintButton.interactable = YandexGame.savesData.moneyAmount >= PAINT_PRICE;
+
+        playButton.interactable = YandexGame.savesData.isFreeVariantCars[selectedCar, selectedColor];
+        colorPanel.gameObject.SetActive(YandexGame.savesData.isFreeVariantCars[selectedCar, 0]);
+        
+        UpdateInfo();
+        
+        suppressToggleEvent = false;
+    }
+
 
     public void Buy()
     {
-        lockImage.gameObject.SetActive(false);
-        playButton.interactable = true;
-        YandexGame.savesData.isFreeCars[selectedCar] = true;
+        selectedColor = 0;
+        
+        YandexGame.savesData.isFreeVariantCars[selectedCar, 0] = true;
         YandexGame.savesData.currentCarIndex = selectedCar;
         YandexGame.savesData.moneyAmount -= carsConfig.cars[selectedCar].price;
+        YandexGame.SaveProgress();
         AudioManager.Instance.PlayBuySound();
         OnUIUpdated?.Invoke();
     }
@@ -113,6 +149,8 @@ public class GarageManager : MonoBehaviour
     public void OnStartRace()
     {
         YandexGame.savesData.currentCarIndex = selectedCar;
+        YandexGame.savesData.currentColorIndex = selectedColor;
+        YandexGame.SaveProgress();
         SceneManager.LoadScene(0);
     }
     private void Select(int index)
@@ -121,16 +159,10 @@ public class GarageManager : MonoBehaviour
         {
             cars[i].gameObject.SetActive(i == index);
         }
-
-        //Lock
-        bool isFreeCar = YandexGame.savesData.isFreeCars[selectedCar];
-        lockImage.gameObject.SetActive(!isFreeCar);
-        priceLabel.text = carsConfig.cars[selectedCar].price.ToString();
-        playButton.interactable = isFreeCar;
-        buyButton.interactable = YandexGame.savesData.moneyAmount >= carsConfig.cars[selectedCar].price;
+        if (!YandexGame.savesData.isFreeVariantCars[selectedCar, selectedColor])
+            selectedColor = 0;
         
-        //InfoPanel
-        UpdateInfo();
+        UpdateColor(selectedColor);
     }
     private void UpdateInfo()
     {
@@ -138,5 +170,25 @@ public class GarageManager : MonoBehaviour
         var controllability = carsConfig.cars[selectedCar].car.GetSensitivity();
         var braking = carsConfig.cars[selectedCar].car.GetBraking();
         infoPanel.SetInfo(acceleration, controllability, braking);
+    }
+
+    public void UpdateColor(int index)
+    {   
+        if (suppressToggleEvent) return; 
+        
+        selectedColor = index;
+        cars[selectedCar].ChangeMaterial(carsConfig.cars[selectedCar].materials[index]);
+        
+        OnUIUpdated?.Invoke();
+    }
+
+    public void PaintCar()
+    {
+        YandexGame.savesData.isFreeVariantCars[selectedCar, selectedColor] = true;
+        YandexGame.savesData.currentColorIndex = selectedColor;
+        YandexGame.savesData.moneyAmount -= PAINT_PRICE;
+        YandexGame.SaveProgress();
+        AudioManager.Instance.PlayBuySound();
+        OnUIUpdated?.Invoke();
     }
 }

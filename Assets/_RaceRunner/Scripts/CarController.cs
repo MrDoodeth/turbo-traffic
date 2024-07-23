@@ -47,14 +47,20 @@ public class CarController : MonoBehaviour
     [SerializeField] private float carTime;
     public static bool isOnBorder;
     public static bool isOncoming;
+    
     private Rigidbody rb;
-    public static float currentSpeed;
+    private MeshRenderer meshRenderer;
+
     private Transform[] wheels;
+    
     private Quaternion targetShift;
     private Quaternion targetRotation;
     private Quaternion targetSpeedRotation;
+    
     private const float DEFAULT_BRAKING = 1f;
     private const float ACCIDENT_BRAKING = 55f;
+    
+    public static float currentSpeed;
     public static CarController Instance;
     public static bool isControllable = true;
 
@@ -70,6 +76,7 @@ public class CarController : MonoBehaviour
         car = this.transform;
         
         rb = GetComponent<Rigidbody>();
+        meshRenderer = body.GetComponent<MeshRenderer>();
         wheels = Wheels.GetComponentsInChildren<Transform>();
     }
 
@@ -190,5 +197,11 @@ public class CarController : MonoBehaviour
     {
         if (currentSpeed >= OVERTAKING_SPEED)
             RaceManager.OnOvertaking?.Invoke(scoreOfOvertaking);
+    }
+
+    public void ChangeMaterial(Material materialInstance)
+    {
+        meshRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
+        meshRenderer.material = materialInstance;
     }
 }

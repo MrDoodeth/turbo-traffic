@@ -19,8 +19,9 @@ namespace YG
         // Ваши сохранения
 
         public int currentCarIndex;
+        public int currentColorIndex;
         public int highScore;
-        public bool[] isFreeCars = new bool[20];
+        public bool[,] isFreeVariantCars = new bool[20, 5];
         public int moneyAmount = 0;
 
         public int qualityIndex = 2;
@@ -37,7 +38,7 @@ namespace YG
 
             openLevels[1] = true;
             
-            isFreeCars[0] = true;
+            isFreeVariantCars[0, 0] = true;
         }
     }
 }
