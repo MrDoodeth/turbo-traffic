@@ -77,7 +77,6 @@ public class GarageManager : MonoBehaviour
         }
         
         cars[selectedCar].gameObject.SetActive(true);
-        cars[selectedCar].ChangeMaterial(carsConfig.cars[selectedCar].materials[selectedColor]);
         
         foreach (var toggle in colorToggles)
         {
@@ -166,6 +165,7 @@ public class GarageManager : MonoBehaviour
         }
         if (!YandexGame.savesData.isFreeVariantCars[selectedCar, selectedColor])
             selectedColor = 0;
+        colorToggles[selectedColor].isOn = true;
         
         UpdateColor(selectedColor);
     }
@@ -179,12 +179,15 @@ public class GarageManager : MonoBehaviour
 
     public void UpdateColor(int index)
     {   
-        if (suppressToggleEvent) return; 
+        if (suppressToggleEvent) return;
         
-        selectedColor = index;
-        cars[selectedCar].ChangeMaterial(carsConfig.cars[selectedCar].materials[index]);
+        if (colorToggles[index].isOn)
+        {
+            selectedColor = index;
+            cars[selectedCar].ChangeMaterial(carsConfig.cars[selectedCar].materials[index]);
         
-        OnUIUpdated?.Invoke();
+            OnUIUpdated?.Invoke();
+        }
     }
 
     public void PaintCar()

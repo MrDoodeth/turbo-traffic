@@ -63,16 +63,37 @@ public class SettingPanel : MonoBehaviour
     }
     public void SetQuality(int index)
     {
-        QualitySettings.SetQualityLevel(index);
-        YandexGame.savesData.qualityIndex = index;
-        YandexGame.SaveProgress();
-        AudioManager.Instance.PlayClickSound();
+        if (qualityToggles[index].isOn)
+        {
+            QualitySettings.SetQualityLevel(index);
+            YandexGame.savesData.qualityIndex = index;
+            YandexGame.SaveProgress();
+            AudioManager.Instance.PlayClickSound();
+        }
     }
 
     public void SetLanguage(string local)
     {
-        YandexGame.SwitchLanguage(local);
-        AudioManager.Instance.PlayClickSound();
+        var index = 0;
+        switch (local)
+        {
+            case "ru":
+                index = 0;
+                break;
+            case "en":
+                index = 1;
+                break;
+            case "tr":
+                index = 2;
+                break;
+        }
+
+        if (languageToggles[index].isOn)
+        {
+            YandexGame.SwitchLanguage(local);
+            YandexGame.SaveProgress();
+            AudioManager.Instance.PlayClickSound();
+        }
     }
 
     public void UpdateSound()

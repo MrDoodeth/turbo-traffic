@@ -12815,7 +12815,7 @@ MonoBehaviour:
   - {fileID: 4250172767688046174, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
   - {fileID: 3514488298161758410, guid: 993432d7809c9bf489a5a96006618fef, type: 3}
   trafficDensity: 0.9
-  maxSpawnInterval: 3
+  maxSpawnInterval: 2
   minSpawnInterval: 1.3
   maxSpeed: 31.5
   passingLanes:
@@ -14890,7 +14890,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1828629040}
-  audioMixer: {fileID: 24100000, guid: eb2a088be483c2c40973e21efe2402c2, type: 2}
   engineSource: {fileID: 641369962}
 --- !u!1 &1834602791
 GameObject:
@@ -15482,10 +15481,10 @@ MonoBehaviour:
   - {fileID: 315185671}
   - {fileID: 2125014610}
   - {fileID: 575166381}
-  maxSpawnInterval: 20
-  minSpawnInterval: 15
+  maxSpawnInterval: 15
+  minSpawnInterval: 10
   maxSpeed: 31.5
-  spawnTimeShift: 0.3
+  spawnTimeShift: 1
 --- !u!114 &1902585706
 MonoBehaviour:
   m_ObjectHideFlags: 0
