@@ -6,7 +6,10 @@ using Random = UnityEngine.Random;
 public class GemSpawner : MonoBehaviour
 {
     public GemSlot[] gemsPrefabs;
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform[] firstLaneSpawnPoints;
+    [SerializeField] private Transform[] secondLaneSpawnPoints;
+    [SerializeField] private Transform[] thirdLaneSpawnPoints;
+    [SerializeField] private Transform[] foursLaneSpawnPoints;
     [Space]
     
     [SerializeField] private float maxSpawnInterval;
@@ -37,7 +40,7 @@ public class GemSpawner : MonoBehaviour
                 gem => { gem.gameObject.SetActive(false); },
                 gem => { Destroy(gem.gameObject); },
                 true,
-                spawnPoints.Length, spawnPoints.Length * 2);
+                firstLaneSpawnPoints.Length * 2, firstLaneSpawnPoints.Length * 4);
         }
     }
     private float GetSpawnInterval() => maxSpawnInterval + (Mathf.Clamp(CarController.currentSpeed, 0f, maxSpeed) - CarController.MIN_SPEED) *
@@ -51,7 +54,7 @@ public class GemSpawner : MonoBehaviour
         if (elapsedTime >= GetSpawnInterval())
         {
             float currentTimeShift = 0;
-            foreach (var spawnPoint in spawnPoints)
+            foreach (var spawnPoint in GetRandomLane())
             {
                 var gem = GetRandomGem();
                 gem.transform.position = spawnPoint.position;
@@ -59,6 +62,26 @@ public class GemSpawner : MonoBehaviour
                 currentTimeShift += spawnTimeShift;
             }
             elapsedTime = 0;
+        }
+    }
+
+    private Transform[] GetRandomLane()
+    {
+        var variant = Random.Range(0, 4);
+
+        switch (variant)
+        {
+            case 0:
+                return firstLaneSpawnPoints;
+            case 1:
+                return secondLaneSpawnPoints;
+            case 2:
+                return thirdLaneSpawnPoints;
+            case 3:
+                return foursLaneSpawnPoints;
+            
+            default:
+                return null;
         }
     }
     private Gem GetRandomGem() => pools[Random.Range(0, pools.Length)].Get();
