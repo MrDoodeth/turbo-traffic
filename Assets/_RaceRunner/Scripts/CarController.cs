@@ -22,7 +22,7 @@ public class CarController : MonoBehaviour
     private const float DISTANCE_RATIO = 1.2f;
     private const float SENSITIVITY_RATIO = 1f;
     private const float ACCELERATION_RATIO = 1f;
-    private const float BRAKING_RATIO = 0.5f;
+    private const float BRAKING_RATIO = 0.4f;
 
     public int GetSpeed() => (int)(currentSpeed * SPEED_RATIO);
     public int GetSensitivity() => (int)(controlSensitivity * SENSITIVITY_RATIO);

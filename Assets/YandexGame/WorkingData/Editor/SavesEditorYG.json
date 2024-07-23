@@ -1,7 +1,7 @@
 {
-  "idSave": 4038,
+  "idSave": 4264,
   "isFirstSession": false,
-  "language": "en",
+  "language": "tr",
   "promptDone": false,
   "money": 1,
   "newPlayerName": "Hello!",
@@ -10,99 +10,22 @@
     true,
     false
   ],
-  "currentCarIndex": 3,
+  "currentCarIndex": 6,
   "currentColorIndex": 4,
-  "highScore": 518,
+  "highScore": 2782,
   "isFreeVariantCars": [
     [
       true,
       false,
       false,
-      false,
-      true
+      true,
+      false
     ],
     [
       true,
       false,
       false,
-      false,
-      true
-    ],
-    [
       true,
-      true,
-      true,
-      true,
-      true
-    ],
-    [
-      true,
-      false,
-      false,
-      false,
-      true
-    ],
-    [
-      true,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      false,
-      false,
-      false,
-      false,
       false
     ],
     [
@@ -139,6 +62,83 @@
       false,
       false,
       true
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
     ],
     [
       false,
@@ -155,8 +155,8 @@
       false
     ]
   ],
-  "moneyAmount": 332,
+  "moneyAmount": 3904,
   "qualityIndex": 2,
   "isSoundActive": true,
-  "isMusicActive": false
+  "isMusicActive": true
 }

@@ -226,13 +226,14 @@ public class FinishPanel : MonoBehaviour
     public void Replay()
     {
         Time.timeScale = 1f;
+        RaceManager.isRespawned = false;
         SceneManager.LoadScene(0);
     }
     public void ShowAd() => YandexGame.RewVideoShow((int)TypeOfAd.X2);
     public void MoveToGarage()
     {
-        RaceManager.isRespawned = false;
         Time.timeScale = 1f;
+        RaceManager.isRespawned = false;
         SceneManager.LoadScene(1);
     }
 
@@ -252,12 +253,12 @@ public class FinishPanel : MonoBehaviour
         gem3Label.text = Mathf.RoundToInt(gem3Value).ToString();
         gem4Label.text = Mathf.RoundToInt(gem4Value).ToString();
         
-        distanceMoneyLabel.text = Mathf.RoundToInt(distanceValueMoney).ToString();
-        overtakingMoneyLabel.text = Mathf.RoundToInt(overtakingValueMoney).ToString();
-        highSpeedMoneyLabel.text = Mathf.RoundToInt(highSpeedValueMoney).ToString();
-        oncomingMoneyLabel.text = Mathf.RoundToInt(oncomingValueMoney).ToString();
-        gemsMoneyLabel.text = Mathf.RoundToInt(gemsValueMoney).ToString();
+        distanceMoneyLabel.text = Mathf.RoundToInt(distanceValueMoney).ToString("N0");
+        overtakingMoneyLabel.text = Mathf.RoundToInt(overtakingValueMoney).ToString("N0");
+        highSpeedMoneyLabel.text = Mathf.RoundToInt(highSpeedValueMoney).ToString("N0");
+        oncomingMoneyLabel.text = Mathf.RoundToInt(oncomingValueMoney).ToString("N0");
+        gemsMoneyLabel.text = Mathf.RoundToInt(gemsValueMoney).ToString("N0");
         
-        resultLabel.text = Mathf.RoundToInt(resultValueMoney).ToString();
+        resultLabel.text = Mathf.RoundToInt(resultValueMoney).ToString("N0");
     }
 }

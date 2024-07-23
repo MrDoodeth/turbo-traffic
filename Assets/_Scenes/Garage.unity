@@ -4081,10 +4081,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateButton: {fileID: 248589931}
   rateMoneyLabel: {fileID: 1035526714}
-  rateMoneyValue: 9999
+  rateMoneyValue: 10000
   adButton: {fileID: 1411276226}
   adMoneyLabel: {fileID: 1192350520}
-  adMoneyValue: 19000
+  adMoneyValue: 5000
   buyYanButton: {fileID: 223683112}
   buyYanMoneyLabel: {fileID: 2109309166}
   buyYanMoneyValue: 100000
@@ -4218,13 +4218,13 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 9af26664dd95e1a46af266a3ea6c90d8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 12
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4320,7 +4320,7 @@ MonoBehaviour:
   minPitch: 0.7
   maxPitch: 1.5
   changeStep: 13
-  music: {fileID: 8300000, guid: 9af26664dd95e1a46af266a3ea6c90d8, type: 3}
+  music: {fileID: 8300000, guid: 880c084ebf9157c4c9e96a8530be2668, type: 3}
   engineSound: {fileID: 8300000, guid: 2363915d1aba9f84b918bdf839612f2d, type: 3}
   clickSound: {fileID: 8300000, guid: c230389cdba1a4d47bda71c4d0e2b6f9, type: 3}
   moneySound: {fileID: 8300000, guid: bfc8a67ee02e1b645a5c33875bba6b16, type: 3}
@@ -4331,7 +4331,7 @@ MonoBehaviour:
   overtakingSound: {fileID: 8300000, guid: 44766caa059435f4fb71af84b2bea7e4, type: 3}
   addValueSound: {fileID: 8300000, guid: c444f64ffc717704294f8581cc5af055, type: 3}
   screechSound: {fileID: 8300000, guid: 7a57385ead5d07746b73c3de0d020613, type: 3}
-  beepSound: {fileID: 0}
+  beepSound: {fileID: 8300000, guid: c6a5e99342215ce43abe4b8807b419b4, type: 3}
 --- !u!4 &791739222
 Transform:
   m_ObjectHideFlags: 0
@@ -9455,11 +9455,11 @@ MonoBehaviour:
   controllabilityLabel: {fileID: 1364796226}
   brakingFill: {fileID: 1035986727}
   brakingLabel: {fileID: 1421047613}
-  fillSpeed: 13
-  ratioFill: 0.045
-  targetAcceleration: 0
-  targetControllability: 0
-  targetBraking: 0
+  fillSpeed: 12
+  ratioFill: 0.044
+  targetAcceleration: 0.704
+  targetControllability: 0.704
+  targetBraking: 0.748
 --- !u!1 &1859605850
 GameObject:
   m_ObjectHideFlags: 0
@@ -10998,6 +10998,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1209934768}
     m_Modifications:
+    - target: {fileID: 3695435151368881872, guid: 9c2188f1fee8f8649918f7ac807da35d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 791739221}
     - target: {fileID: 5671359301289161612, guid: 9c2188f1fee8f8649918f7ac807da35d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11098,6 +11103,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7043088070922759048, guid: 9c2188f1fee8f8649918f7ac807da35d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 791739221}
     - target: {fileID: 8011843510130710077, guid: 9c2188f1fee8f8649918f7ac807da35d,
         type: 3}
       propertyPath: m_Name

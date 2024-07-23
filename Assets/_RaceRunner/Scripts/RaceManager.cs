@@ -33,7 +33,7 @@ public class RaceManager : MonoBehaviour
     public static Action<int> OnOvertaking;
     public static Action OnPlayerFinished;
 
-    public static bool isRespawned;
+    public static bool isRespawned = false;
     public static float currentScore;
     public static int[] gemsAmount = new int[4];
     private static float timeAtHighSpeed;
@@ -50,7 +50,7 @@ public class RaceManager : MonoBehaviour
         CarController.Instance.ChangeMaterial(carsConfig.cars[YandexGame.savesData.currentCarIndex].materials[YandexGame.savesData.currentColorIndex]);
         mobileHUD.gameObject.SetActive(YandexGame.EnvironmentData.isMobile);
     }
-
+    
     private void Update()
     {
         //Score Calculating
@@ -78,13 +78,6 @@ public class RaceManager : MonoBehaviour
         OnPlayerFinished += Finish;
         YandexGame.RewardVideoEvent += OnX2Ad;
         YandexGame.RewardVideoEvent += OnContinueAd;
-    }
-    private void OnDisable()
-    {
-        OnOvertaking -= OnScoreUpdate;
-        OnPlayerFinished -= Finish;
-        YandexGame.RewardVideoEvent -= OnX2Ad;
-        YandexGame.RewardVideoEvent -= OnContinueAd;
         
         if (!isRespawned)
         {
@@ -94,6 +87,13 @@ public class RaceManager : MonoBehaviour
             timeAtOncomingLane = 0f;
             overtakingCount = 0;
         }
+    }
+    private void OnDisable()
+    {
+        OnOvertaking -= OnScoreUpdate;
+        OnPlayerFinished -= Finish;
+        YandexGame.RewardVideoEvent -= OnX2Ad;
+        YandexGame.RewardVideoEvent -= OnContinueAd;
     }
     
     private void OnScoreUpdate(int scoreAmount)
@@ -134,7 +134,7 @@ public class RaceManager : MonoBehaviour
     
     private async void Finish()
     {
-        AudioManager.Instance.PlayCrashSound();
+        AudioManager.Instance.PlayCrashSound(); 
         if (!isRespawned)
         {
             await Task.Delay(1000);

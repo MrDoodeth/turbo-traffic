@@ -98,16 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78bcf1b9d84acec4294bd422f7a8d4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 40
-  controlSensitivity: 12
+  maxSpeed: 47
+  controlSensitivity: 11
   acceleration: 10
-  braking: 28
-  scoreOfOvertaking: 100
+  braking: 23
+  scoreOfOvertaking: 140
   Wheels: {fileID: 2123776737697836375}
   angleBySpeed: 65
   body: {fileID: 3752188097595624375}
-  shiftHorizontalAngle: 4.5
-  speedVerticalAngle: 2.5
+  shiftHorizontalAngle: 4
+  speedVerticalAngle: 2
   bodyTime: 40
   car: {fileID: 4338636211025939732}
   rotateAngle: 5

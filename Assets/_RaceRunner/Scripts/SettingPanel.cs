@@ -37,8 +37,11 @@ public class SettingPanel : MonoBehaviour
     {
         qualityToggles[YandexGame.savesData.qualityIndex].isOn = true;
         
-        UpdateSound();
-        UpdateMusic();
+        soundImage = soundButton.GetComponent<Image>();
+        musicImage = musicButton.GetComponent<Image>();
+        
+        soundImage.sprite = YandexGame.savesData.isSoundActive ? onSound : offSound;
+        musicImage.sprite = YandexGame.savesData.isMusicActive ? onMusic : offMusic;
 
         UpdateLanguage();
     }
@@ -75,7 +78,6 @@ public class SettingPanel : MonoBehaviour
     public void UpdateSound()
     {
         soundImage = soundButton.GetComponent<Image>();
-        musicImage = musicButton.GetComponent<Image>();
         
         if (YandexGame.savesData.isSoundActive)
         {
@@ -91,7 +93,6 @@ public class SettingPanel : MonoBehaviour
 
     public void UpdateMusic()
     {
-        soundImage = soundButton.GetComponent<Image>();
         musicImage = musicButton.GetComponent<Image>();
         
         if (YandexGame.savesData.isMusicActive)

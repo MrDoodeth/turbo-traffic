@@ -432,8 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 35
-  controlSensitivity: 6
-  acceleration: 4
+  controlSensitivity: 7
+  acceleration: 6
   braking: 15
   scoreOfOvertaking: 100
   Wheels: {fileID: 0}
@@ -443,7 +443,7 @@ MonoBehaviour:
   speedVerticalAngle: 2.5
   bodyTime: 40
   car: {fileID: 0}
-  rotateAngle: 5
+  rotateAngle: 6
   carTime: 40
 --- !u!65 &-1337716750206615527
 BoxCollider:

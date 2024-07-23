@@ -38,7 +38,7 @@ public class GarageManager : MonoBehaviour
     private int selectedColor;
     private readonly List<CarController> cars = new List<CarController>();
     public static Action OnUIUpdated;
-    private const int PAINT_PRICE = 500;
+    private const int PAINT_PRICE = 2000;
     private Toggle[] colorToggles;
     private bool suppressToggleEvent = false;
 
@@ -48,6 +48,11 @@ public class GarageManager : MonoBehaviour
         colorToggles = colorToggleGroup.GetComponentsInChildren<Toggle>();
     }
 
+    private void Start()
+    {
+        settingPanel.UpdateSound();
+        settingPanel.UpdateMusic();
+    }
     private void OnEnable()
     {
         settingPanel.UpdateSound();
@@ -96,9 +101,9 @@ public class GarageManager : MonoBehaviour
     {
         suppressToggleEvent = true;
         
-        moneyLabel.text = YandexGame.savesData.moneyAmount.ToString();
+        moneyLabel.text = YandexGame.savesData.moneyAmount.ToString("N0");
         highScoreLabel.text = YandexGame.savesData.highScore.ToString();
-        priceColorLabel.text = PAINT_PRICE.ToString();
+        priceColorLabel.text = PAINT_PRICE.ToString("N0");
         priceCarLabel.text = carsConfig.cars[selectedCar].price.ToString();
 
         colorToggles[selectedColor].isOn = true;
