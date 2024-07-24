@@ -103,7 +103,7 @@ public class GarageManager : MonoBehaviour
         moneyLabel.text = YandexGame.savesData.moneyAmount.ToString("N0");
         highScoreLabel.text = YandexGame.savesData.highScore.ToString();
         priceColorLabel.text = PAINT_PRICE.ToString("N0");
-        priceCarLabel.text = carsConfig.cars[selectedCar].price.ToString();
+        priceCarLabel.text = carsConfig.cars[selectedCar].price.ToString("N0");
 
         colorToggles[selectedColor].isOn = true;
         
