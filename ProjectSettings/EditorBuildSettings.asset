@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Race.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/_Scenes/Garage.unity
     guid: 0ff82f80dd6615846a9bffb28e0e7ac7
+  - enabled: 1
+    path: Assets/_Scenes/Race.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}

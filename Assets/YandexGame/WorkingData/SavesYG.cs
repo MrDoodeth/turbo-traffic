@@ -37,7 +37,6 @@ namespace YG
             // Допустим, задать значения по умолчанию для отдельных элементов массива
 
             openLevels[1] = true;
-            
             isFreeVariantCars[0, 0] = true;
         }
     }

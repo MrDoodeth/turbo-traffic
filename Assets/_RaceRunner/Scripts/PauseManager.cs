@@ -27,6 +27,6 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         engineSource.mute = false;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }

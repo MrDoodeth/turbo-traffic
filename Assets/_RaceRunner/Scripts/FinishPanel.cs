@@ -227,14 +227,14 @@ public class FinishPanel : MonoBehaviour
     {
         Time.timeScale = 1f;
         RaceManager.isRespawned = false;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void ShowAd() => YandexGame.RewVideoShow((int)TypeOfAd.X2);
     public void MoveToGarage()
     {
         Time.timeScale = 1f;
         RaceManager.isRespawned = false;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     private void Update()

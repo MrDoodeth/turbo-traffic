@@ -1,5 +1,5 @@
 {
-  "idSave": 4481,
+  "idSave": 4515,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -10,51 +10,16 @@
     true,
     false
   ],
-  "currentCarIndex": 1,
+  "currentCarIndex": 0,
   "currentColorIndex": 0,
-  "highScore": 3649,
+  "highScore": 221,
   "isFreeVariantCars": [
     [
       true,
       false,
       false,
-      true,
-      false
-    ],
-    [
-      true,
-      false,
-      false,
-      true,
-      false
-    ],
-    [
-      true,
-      false,
-      false,
       false,
       false
-    ],
-    [
-      true,
-      false,
-      false,
-      false,
-      false
-    ],
-    [
-      true,
-      false,
-      true,
-      true,
-      false
-    ],
-    [
-      true,
-      false,
-      false,
-      false,
-      true
     ],
     [
       false,
@@ -64,8 +29,43 @@
       false
     ],
     [
-      true,
-      true,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
       false,
       false,
       false
@@ -155,8 +155,8 @@
       false
     ]
   ],
-  "moneyAmount": 58815,
-  "qualityIndex": 0,
+  "moneyAmount": 384,
+  "qualityIndex": 2,
   "isSoundActive": true,
   "isMusicActive": true
 }
