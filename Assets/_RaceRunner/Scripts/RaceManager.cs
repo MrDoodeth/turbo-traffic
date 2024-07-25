@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -44,11 +45,12 @@ public class RaceManager : MonoBehaviour
 
     private void Awake()
     {
+        QualitySettings.SetQualityLevel(YandexGame.savesData.qualityIndex);
         //Player spawn
         CarController.Instance = Instantiate(carsConfig.cars[YandexGame.savesData.currentCarIndex].car, Vector3.zero, Quaternion.identity);
         //Change color
         CarController.Instance.ChangeMaterial(carsConfig.cars[YandexGame.savesData.currentCarIndex].materials[YandexGame.savesData.currentColorIndex]);
-        mobileHUD.gameObject.SetActive(YandexGame.EnvironmentData.isMobile);
+        //mobileHUD.gameObject.SetActive(!YandexGame.EnvironmentData.isDesktop);
     }
     
     private void Update()
@@ -137,7 +139,7 @@ public class RaceManager : MonoBehaviour
         AudioManager.Instance.PlayCrashSound(); 
         if (!isRespawned)
         {
-            await Task.Delay(1000);
+            await UniTask.Delay(1000);
             continuePanel.gameObject.SetActive(true);
         }
         else
@@ -192,7 +194,7 @@ public class RaceManager : MonoBehaviour
             finishPanel.targetGemsValueMoney = gemsMoney;
             finishPanel.targetResultValueMoney = resultMoney;
         
-            await Task.Delay(delay);
+            await UniTask.Delay(delay);
             finishPanel.gameObject.SetActive(true);
     }
 }

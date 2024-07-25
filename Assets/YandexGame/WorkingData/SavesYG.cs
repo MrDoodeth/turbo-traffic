@@ -24,7 +24,7 @@ namespace YG
         public bool[,] isFreeVariantCars = new bool[20, 5];
         public int moneyAmount = 0;
 
-        public int qualityIndex = 2;
+        public int qualityIndex = 1;
         public bool isSoundActive = true;
         public bool isMusicActive = true;
 
