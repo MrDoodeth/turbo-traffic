@@ -751,6 +751,7 @@ MonoBehaviour:
   controlSensitivity: 16
   acceleration: 15
   braking: 33
+  isHaveSpoiler: 1
   scoreOfOvertaking: 190
   Wheels: {fileID: 0}
   angleBySpeed: 65
@@ -780,7 +781,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.8590055, y: 1.592041, z: 4.5259547}
+  m_Size: {x: 3.3700426, y: 1.592041, z: 4.5259547}
   m_Center: {x: -0.016243815, y: 0.8347385, z: -0.002707243}
 --- !u!1001 &2278954142018751974
 PrefabInstance:

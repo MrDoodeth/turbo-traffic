@@ -222,6 +222,7 @@ MonoBehaviour:
   controlSensitivity: 16
   acceleration: 18
   braking: 34
+  isHaveSpoiler: 1
   scoreOfOvertaking: 210
   Wheels: {fileID: 0}
   angleBySpeed: 65
@@ -251,7 +252,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.0239673, y: 1.4755046, z: 4.666361}
+  m_Size: {x: 3.286273, y: 1.4755046, z: 4.666361}
   m_Center: {x: 0, y: 0.8930067, z: 0.0057468414}
 --- !u!1 &1752061446521464730
 GameObject:

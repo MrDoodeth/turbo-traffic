@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 733417560}
+      - m_Target: {fileID: 1526160193}
         m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
         m_MethodName: GetPayment
         m_Mode: 1
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 733417560}
+      - m_Target: {fileID: 1526160193}
         m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
         m_MethodName: ShowReview
         m_Mode: 1
@@ -3948,7 +3948,6 @@ GameObject:
   - component: {fileID: 733417556}
   - component: {fileID: 733417559}
   - component: {fileID: 733417558}
-  - component: {fileID: 733417560}
   m_Layer: 5
   m_Name: ShopPanel
   m_TagString: Untagged
@@ -3963,13 +3962,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733417555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 913106903}
-  m_Father: {fileID: 1209934768}
+  m_Father: {fileID: 1526160192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4011,27 +4010,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733417555}
   m_CullTransparentMesh: 1
---- !u!114 &733417560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733417555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f79aa537073ea44abb481a96bde7424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rateButton: {fileID: 248589931}
-  rateMoneyLabel: {fileID: 1035526714}
-  rateMoneyValue: 10000
-  adButton: {fileID: 1411276226}
-  adMoneyLabel: {fileID: 1192350520}
-  adMoneyValue: 5000
-  buyYanButton: {fileID: 223683112}
-  buyYanMoneyLabel: {fileID: 2109309166}
-  buyYanMoneyValue: 100000
 --- !u!1 &764561550
 GameObject:
   m_ObjectHideFlags: 0
@@ -4543,7 +4521,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 49
+  m_text: 29
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 114182d16e880db4c975783c6c77fe4e, type: 2}
   m_sharedMaterial: {fileID: -5771206026975122055, guid: 114182d16e880db4c975783c6c77fe4e,
@@ -6211,7 +6189,7 @@ RectTransform:
   - {fileID: 968600737}
   - {fileID: 710379389}
   - {fileID: 1203577900}
-  - {fileID: 733417556}
+  - {fileID: 1526160192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7044,7 +7022,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 733417560}
+      - m_Target: {fileID: 1526160193}
         m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
         m_MethodName: ShowAd
         m_Mode: 1
@@ -7489,6 +7467,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483738225}
   m_CullTransparentMesh: 1
+--- !u!1 &1526160191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526160192}
+  - component: {fileID: 1526160193}
+  m_Layer: 5
+  m_Name: SHOP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1526160192
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526160191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 733417556}
+  m_Father: {fileID: 1209934768}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1526160193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526160191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f79aa537073ea44abb481a96bde7424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rateButton: {fileID: 248589931}
+  rateMoneyLabel: {fileID: 1035526714}
+  rateMoneyValue: 20000
+  adButton: {fileID: 1411276226}
+  adMoneyLabel: {fileID: 1192350520}
+  adMoneyValue: 10000
+  buyYanButton: {fileID: 223683112}
+  buyYanMoneyLabel: {fileID: 2109309166}
+  buyYanMoneyValue: 150000
 --- !u!1 &1542872451
 GameObject:
   m_ObjectHideFlags: 0

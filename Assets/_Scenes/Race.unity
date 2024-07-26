@@ -210,8 +210,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3008,7 +3008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 500, y: 200}
+  m_AnchoredPosition: {x: 400, y: 200}
   m_SizeDelta: {x: 140.38123, y: 122.1638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &369139037
@@ -3068,7 +3068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6113368, g: 0.9433962, b: 0.493948, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7050,7 +7050,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In the opposite lane
+  m_text: "\u041F\u043E \u0432\u0441\u0442\u0440\u0435\u0447\u043D\u043E\u0439 \u043F\u043E\u043B\u043E\u0441\u0435"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da25eb1ede653494daeed3bbfece61d5, type: 2}
   m_sharedMaterial: {fileID: 875997897546480729, guid: da25eb1ede653494daeed3bbfece61d5,
@@ -7078,8 +7078,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9799,10 +9799,10 @@ MonoBehaviour:
   gemSpawner: {fileID: 1902585705}
   scoreSpeedRatio: 0.1
   scoreOncomingRatio: 2
-  distanceMoneyRatio: 205
-  overtakingMoneyRatio: 15
-  highSpeedMoneyRatio: 7.5
-  oncomingMoneyRatio: 12
+  distanceMoneyRatio: 700
+  overtakingMoneyRatio: 100
+  highSpeedMoneyRatio: 70
+  oncomingMoneyRatio: 90
   finishPanel: {fileID: 1834602795}
   mobileHUD: {fileID: 1543350357}
   continuePanel: {fileID: 1104283966}
@@ -12105,10 +12105,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.25
+  m_fontSize: 40
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -12797,34 +12797,19 @@ MonoBehaviour:
   - {fileID: 8648620584918820311, guid: b0ad868427d8c8a4b86144f9786776d3, type: 3}
   - {fileID: -6233852495318730401, guid: 00d77ce56096de34eb6645947a0f8925, type: 3}
   - {fileID: -6620330828689838439, guid: 05aec82adc02f16409639716322b1673, type: 3}
-  - {fileID: -2736360649773782185, guid: cffe1734bc43bcb47b6433ebca05c04c, type: 3}
-  - {fileID: 4250172767688046174, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
   - {fileID: -8089715984068786078, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
-  - {fileID: 1948654254333970530, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
-  - {fileID: -3147248078423443115, guid: f269a0a343ed94c4e908a388c940ea06, type: 3}
   - {fileID: -3251077838312815510, guid: a119eb0fa059db34bbaef286c1af1696, type: 3}
-  - {fileID: -4330658861631592064, guid: 81835658bbd378143a0f525b8552f557, type: 3}
-  - {fileID: -4426682751459510305, guid: c98da428142c39c42bb62c454958cd1f, type: 3}
-  - {fileID: 6232987791965294263, guid: 81c050d9e127fdd45af1f6b8da476b2b, type: 3}
-  - {fileID: 9174849894008390062, guid: ce2dd4bb67fdc684dac928dc2cfb7a0f, type: 3}
-  - {fileID: 5098088354992585378, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
-  - {fileID: 8648620584918820311, guid: b0ad868427d8c8a4b86144f9786776d3, type: 3}
-  - {fileID: -6233852495318730401, guid: 00d77ce56096de34eb6645947a0f8925, type: 3}
-  - {fileID: -6620330828689838439, guid: 05aec82adc02f16409639716322b1673, type: 3}
-  - {fileID: -2736360649773782185, guid: cffe1734bc43bcb47b6433ebca05c04c, type: 3}
-  - {fileID: 4250172767688046174, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
-  - {fileID: 3514488298161758410, guid: 993432d7809c9bf489a5a96006618fef, type: 3}
   trafficDensity: 0.9
-  maxSpawnInterval: 2
-  minSpawnInterval: 1.3
-  maxSpeed: 31.5
+  maxSpawnInterval: 4.2
+  minSpawnInterval: 1.8
+  maxSpeed: 33
   passingLanes:
   - {fileID: 1401714805}
   - {fileID: 894090673}
   oncomingLanes:
   - {fileID: 504669815}
   - {fileID: 1798539836}
-  maxRandomSpawnDistance: 3.77
+  maxRandomSpawnDistance: 3.85
 --- !u!1 &1550944349
 GameObject:
   m_ObjectHideFlags: 0
@@ -13577,7 +13562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 200}
+  m_AnchoredPosition: {x: 200, y: 200}
   m_SizeDelta: {x: 140.3812, y: 122.1638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637923357
@@ -13637,7 +13622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6113368, g: 0.9433962, b: 0.493948, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15450,13 +15435,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gemsPrefabs:
   - gem: {fileID: 4940401035649627648, guid: b7baec692cb65be4e90e903418cc93e6, type: 3}
-    price: 100
+    price: 500
   - gem: {fileID: 3454523776647442904, guid: 52585d0c9ffd9024989d3112790c681b, type: 3}
-    price: 75
+    price: 200
   - gem: {fileID: 4036237687787107450, guid: 7804ca99baaeba84e9c967eed2f0721b, type: 3}
-    price: 50
+    price: 100
   - gem: {fileID: 8885355529809535572, guid: 1a2c89bd5b758ee47afb255929acfa31, type: 3}
-    price: 25
+    price: 50
   firstLaneSpawnPoints:
   - {fileID: 848882798}
   - {fileID: 1325201826}
@@ -16164,7 +16149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -500, y: 200}
+  m_AnchoredPosition: {x: -400, y: 200}
   m_SizeDelta: {x: 216.41, y: 185.5379}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098263408
@@ -16436,7 +16421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -250, y: 200}
+  m_AnchoredPosition: {x: -200, y: 200}
   m_SizeDelta: {x: 240.2583, y: 209.0799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136412707

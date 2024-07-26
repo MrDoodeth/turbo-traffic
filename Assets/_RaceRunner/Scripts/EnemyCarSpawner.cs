@@ -46,11 +46,22 @@ public class EnemyCarSpawner : MonoBehaviour
         {
             if (Random.value <= trafficDensity)
             {
-                //Passing
-                SpawnEnemyCar(passingLanes);
+                if (Random.value <= 0.5)
+                {
+                    //Passing
+                    SpawnEnemyCar(passingLanes, true);
                 
-                //Oncoming
-                SpawnEnemyCar(oncomingLanes);
+                    //Oncoming
+                    SpawnEnemyCar(oncomingLanes, false);
+                }
+                else
+                {
+                    //Passing
+                    SpawnEnemyCar(passingLanes, false);
+                
+                    //Oncoming
+                    SpawnEnemyCar(oncomingLanes, true);
+                }
             }
             elapsedTime = 0;
         }
@@ -72,16 +83,23 @@ public class EnemyCarSpawner : MonoBehaviour
         car.gameObject.SetActive(false);
         deactiveEnemyCars.Add(car);
     }
-    
-    private void SpawnEnemyCar(Transform[] spawnPoints)
+
+    private void SpawnEnemyCar(Transform[] spawnPoints, bool isFull)
     {
         if (deactiveEnemyCars.Count == 0 || CarController.currentSpeed <= 10f)
             return;
+
+        int variant = 0;
+        if (isFull)
+            variant = Random.Range(0, 3);
+        else
+            variant = Random.Range(0, 2);
         
-        var variant = Random.Range(0, 3);
         EnemyCar car;
-        Vector3 spawnPoint1 = spawnPoints[0].position + Vector3.forward * Random.Range(-maxRandomSpawnDistance, maxRandomSpawnDistance);
-        Vector3 spawnPoint2 = spawnPoints[1].position + Vector3.forward * Random.Range(-maxRandomSpawnDistance, maxRandomSpawnDistance);
+        Vector3 spawnPoint1 = spawnPoints[0].position +
+                              Vector3.forward * Random.Range(-maxRandomSpawnDistance, maxRandomSpawnDistance);
+        Vector3 spawnPoint2 = spawnPoints[1].position +
+                              Vector3.forward * Random.Range(-maxRandomSpawnDistance, maxRandomSpawnDistance);
 
         switch (variant)
         {

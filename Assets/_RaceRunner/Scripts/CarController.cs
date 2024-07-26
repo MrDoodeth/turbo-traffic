@@ -10,6 +10,7 @@ public class CarController : MonoBehaviour
     public float controlSensitivity;
     public float acceleration;
     public float braking;
+    [SerializeField] private bool isHaveSpoiler = false;
 
     private const float MIN_X_BORDER = -6.764f;
     private const float MAX_X_BORDER = 6.764f;
@@ -203,5 +204,11 @@ public class CarController : MonoBehaviour
     {
         meshRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
         meshRenderer.material = materialInstance;
+
+        if (isHaveSpoiler)
+        {
+            var spoilerMeshRenderer = transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
+            spoilerMeshRenderer.material = materialInstance;
+        }
     }
 }
