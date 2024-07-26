@@ -3073,6 +3073,7 @@ GameObject:
   - component: {fileID: 557528513}
   - component: {fileID: 557528515}
   - component: {fileID: 557528514}
+  - component: {fileID: 557528516}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -3119,7 +3120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3cb4fa72120a7f34b958b07936efb1c5, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3137,6 +3138,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557528512}
   m_CullTransparentMesh: 1
+--- !u!114 &557528516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557528512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48d8d781d3e59d409adef5e128d2b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLoad: 1
+  rawImage: {fileID: 0}
+  spriteImage: {fileID: 557528514}
+  urlImage: 
+  loadAnimObj: {fileID: 0}
+  debug: 0
 --- !u!1 &572215149
 GameObject:
   m_ObjectHideFlags: 0
@@ -4521,7 +4540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 29
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 114182d16e880db4c975783c6c77fe4e, type: 2}
   m_sharedMaterial: {fileID: -5771206026975122055, guid: 114182d16e880db4c975783c6c77fe4e,
@@ -5280,16 +5299,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1228984477}
-        m_TargetAssemblyTypeName: GarageManager, Assembly-CSharp
-        m_MethodName: ShowURL
-        m_Mode: 1
+      - m_Target: {fileID: 2211564899215301631}
+        m_TargetAssemblyTypeName: YG.YandexGame, Assembly-CSharp
+        m_MethodName: _OnURL_Yandex_DefineDomain
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: developer/75165
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 791739221}
@@ -7516,15 +7535,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f79aa537073ea44abb481a96bde7424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateButton: {fileID: 248589931}
   rateMoneyLabel: {fileID: 1035526714}
-  rateMoneyValue: 20000
-  adButton: {fileID: 1411276226}
+  rateMoneyValue: 30000
   adMoneyLabel: {fileID: 1192350520}
-  adMoneyValue: 10000
-  buyYanButton: {fileID: 223683112}
+  adMoneyValue: 20000
   buyYanMoneyLabel: {fileID: 2109309166}
-  buyYanMoneyValue: 150000
+  buyYanLabel: {fileID: 807002007}
+  currencyImageLoadYg: {fileID: 2060108036}
+  iconImageLoadYg: {fileID: 557528516}
+  buyYanMoneyValue: 200000
 --- !u!1 &1542872451
 GameObject:
   m_ObjectHideFlags: 0
@@ -9012,6 +9031,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1526160193}
+        m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
+        m_MethodName: UpdatePurchase
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10674,6 +10705,7 @@ GameObject:
   - component: {fileID: 2060108033}
   - component: {fileID: 2060108035}
   - component: {fileID: 2060108034}
+  - component: {fileID: 2060108036}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -10720,7 +10752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9bba426e939caad48baea3075c90d6c4, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -10738,6 +10770,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060108032}
   m_CullTransparentMesh: 1
+--- !u!114 &2060108036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060108032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48d8d781d3e59d409adef5e128d2b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLoad: 1
+  rawImage: {fileID: 0}
+  spriteImage: {fileID: 2060108034}
+  urlImage: 
+  loadAnimObj: {fileID: 0}
+  debug: 0
 --- !u!1 &2069103803
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,10 +18,12 @@ MonoBehaviour:
   playerInfoSimulation:
     authorized: 1
     isMobile: 0
-    language: en
+    language: ru
     name: Player this
     uniqueID: 000
     photo: https://justplaygames.ru/public/icon_player.png
+    payingStatus: paying
+    serverTime: 1721201231000
   AdWhenLoadingScene: 1
   showFirstAd: 1
   rewardedAfterClosing: 1
@@ -60,7 +62,7 @@ MonoBehaviour:
     - rank: 1
       name: anonymous
       score: 10
-      photo: https://justplaygames.ru/public/icon_player.png
+      photo: https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/0/islands-retina-small
       uniqueID: 123
     - rank: 2
       name: Ivan
@@ -98,32 +100,32 @@ MonoBehaviour:
     decimalOffset: 0
     type: numeric
     players:
-    - rank: 1
+    - rank: 6
       name: anonymous
       score: 10
-      photo: https://justplaygames.ru/public/icon_player.png
+      photo: https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/0/islands-retina-small
       uniqueID: 123
-    - rank: 2
+    - rank: 5
       name: Ivan
       score: 15
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 321
-    - rank: 3
+    - rank: 4
       name: Tanya
       score: 23
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 456
-    - rank: 4
+    - rank: 3
       name: player4
       score: 30
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 321
-    - rank: 5
+    - rank: 2
       name: playerThis
       score: 40
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 000
-    - rank: 6
+    - rank: 1
       name: player6
       score: 50
       photo: https://justplaygames.ru/public/icon_player.png
@@ -147,32 +149,32 @@ MonoBehaviour:
     decimalOffset: 0
     type: numeric
     players:
-    - rank: 1
+    - rank: 6
       name: anonymous
       score: 7123
-      photo: https://justplaygames.ru/public/icon_player.png
+      photo: https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/0/islands-retina-small
       uniqueID: 789
-    - rank: 2
+    - rank: 5
       name: Max
       score: 15321
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 987
-    - rank: 3
+    - rank: 4
       name: Maria
       score: 62000
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 891
-    - rank: 4
+    - rank: 3
       name: Player4
       score: 122000
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 321
-    - rank: 5
+    - rank: 6
       name: Player this
-      score: 127000
+      score: 11000
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 000
-    - rank: 6
+    - rank: 2
       name: Player6
       score: 340000
       photo: https://justplaygames.ru/public/icon_player.png
@@ -303,10 +305,13 @@ MonoBehaviour:
     hi: 
   purshasesSimulation:
   - id: money
-    title: "\u0413\u043E\u043D\u043E\u0447\u043D\u044B\u0435 \u0431\u0438\u043B\u0435\u0442\u044B"
-    description: 
-    imageURI: 
-    priceValue: 
+    title: Gun
+    description: Product - Gun
+    imageURI: https://avatars.mds.yandex.net/get-games/13012056/2a00000190eee530d2e617fd512b3144d29e//default87x87
+    price: 5 YAN
+    priceValue: 5
+    priceCurrencyCode: YAN
+    currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
     consumed: 0
   metricaEnable: 0
   metricaCounterID: 0
@@ -316,5 +321,3 @@ MonoBehaviour:
   backgroundImageFormat: 3
   pixelRatioEnable: 0
   pixelRatioValue: 1
-  loadGameRun: 0
-  staticRBTInGame: 0

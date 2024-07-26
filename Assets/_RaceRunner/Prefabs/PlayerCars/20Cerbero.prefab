@@ -383,7 +383,7 @@ MonoBehaviour:
   maxSpeed: 70
   controlSensitivity: 17
   acceleration: 22
-  braking: 34
+  braking: 43
   isHaveSpoiler: 1
   scoreOfOvertaking: 250
   Wheels: {fileID: 0}

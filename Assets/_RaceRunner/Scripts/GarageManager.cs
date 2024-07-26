@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -149,7 +148,6 @@ public class GarageManager : MonoBehaviour
             selectedCar++;
         Select(selectedCar);
     }
-    public void ShowURL() => Application.OpenURL("https://yandex.ru/games/developer/75165");
 
     public void OnStartRace()
     {

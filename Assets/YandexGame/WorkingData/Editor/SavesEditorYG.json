@@ -1,7 +1,7 @@
 {
-  "idSave": 4808,
+  "idSave": 9,
   "isFirstSession": false,
-  "language": "en",
+  "language": "ru",
   "promptDone": false,
   "money": 1,
   "newPlayerName": "Hello!",
@@ -10,71 +10,36 @@
     true,
     false
   ],
-  "currentCarIndex": 8,
-  "currentColorIndex": 3,
-  "highScore": 221,
+  "currentCarIndex": 0,
+  "currentColorIndex": 0,
+  "highScore": 226,
   "isFreeVariantCars": [
     [
       true,
-      true,
-      false,
-      false,
-      false
-    ],
-    [
-      true,
       false,
       false,
       false,
       false
     ],
     [
-      true,
       false,
-      false,
-      false,
-      false
-    ],
-    [
-      true,
       false,
       false,
       false,
       false
     ],
     [
-      true,
       false,
-      false,
-      false,
-      false
-    ],
-    [
-      true,
       false,
       false,
       false,
       false
     ],
     [
-      true,
       false,
       false,
       false,
-      false
-    ],
-    [
-      true,
       false,
-      false,
-      false,
-      false
-    ],
-    [
-      true,
-      false,
-      false,
-      true,
       false
     ],
     [
@@ -99,7 +64,42 @@
       false
     ],
     [
-      true,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
       false,
       false,
       false,
@@ -155,8 +155,8 @@
       false
     ]
   ],
-  "moneyAmount": 84366,
+  "moneyAmount": 1081,
   "qualityIndex": 2,
   "isSoundActive": true,
-  "isMusicActive": false
+  "isMusicActive": true
 }

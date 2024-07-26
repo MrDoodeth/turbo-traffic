@@ -5,19 +5,19 @@ using YG;
 
 public class ShopPanel : MonoBehaviour
 {
-
-    [SerializeField] private Button rateButton;
+    
     [SerializeField] private TMP_Text rateMoneyLabel;
     [SerializeField] private int rateMoneyValue;
     [Space]
     
-    [SerializeField] private Button adButton;
     [SerializeField] private TMP_Text adMoneyLabel;
     [SerializeField] private int adMoneyValue;
     [Space]
     
-    [SerializeField] private Button buyYanButton;
     [SerializeField] private TMP_Text buyYanMoneyLabel;
+    [SerializeField] private TMP_Text buyYanLabel;
+    [SerializeField] private ImageLoadYG currencyImageLoadYg;
+    [SerializeField] private ImageLoadYG iconImageLoadYg;
     [SerializeField] private int buyYanMoneyValue;
 
     private void OnEnable()
@@ -71,5 +71,12 @@ public class ShopPanel : MonoBehaviour
             YandexGame.SaveProgress();
             AudioManager.Instance.PlayPurchaseSound();
         }
+    }
+
+    public void UpdatePurchase()
+    {
+        buyYanLabel.text = YandexGame.purchases[0].priceValue;
+        currencyImageLoadYg.Load(YandexGame.purchases[0].currencyImageURL);
+        iconImageLoadYg.Load(YandexGame.purchases[0].imageURI);
     }
 }

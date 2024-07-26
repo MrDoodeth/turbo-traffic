@@ -9799,9 +9799,9 @@ MonoBehaviour:
   gemSpawner: {fileID: 1902585705}
   scoreSpeedRatio: 0.1
   scoreOncomingRatio: 2
-  distanceMoneyRatio: 700
-  overtakingMoneyRatio: 100
-  highSpeedMoneyRatio: 70
+  distanceMoneyRatio: 850
+  overtakingMoneyRatio: 115
+  highSpeedMoneyRatio: 75
   oncomingMoneyRatio: 90
   finishPanel: {fileID: 1834602795}
   mobileHUD: {fileID: 1543350357}
