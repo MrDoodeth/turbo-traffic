@@ -1,5 +1,5 @@
 {
-  "idSave": 9,
+  "idSave": 51,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -10,9 +10,9 @@
     true,
     false
   ],
-  "currentCarIndex": 0,
-  "currentColorIndex": 0,
-  "highScore": 226,
+  "currentCarIndex": 1,
+  "currentColorIndex": 4,
+  "highScore": 400,
   "isFreeVariantCars": [
     [
       true,
@@ -22,11 +22,11 @@
       false
     ],
     [
+      true,
       false,
       false,
       false,
-      false,
-      false
+      true
     ],
     [
       false,
@@ -155,8 +155,8 @@
       false
     ]
   ],
-  "moneyAmount": 1081,
-  "qualityIndex": 2,
+  "moneyAmount": 31310,
+  "qualityIndex": 1,
   "isSoundActive": true,
-  "isMusicActive": true
+  "isMusicActive": false
 }

@@ -154,6 +154,7 @@ public class GarageManager : MonoBehaviour
         YandexGame.savesData.currentCarIndex = selectedCar;
         YandexGame.savesData.currentColorIndex = selectedColor;
         YandexGame.SaveProgress();
+        YandexGame.FullscreenShow();
         SceneManager.LoadScene(1);
     }
     private void Select(int index)

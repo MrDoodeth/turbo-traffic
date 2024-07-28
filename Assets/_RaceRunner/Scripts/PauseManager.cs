@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 
 public class PauseManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         engineSource.mute = false;
+        YandexGame.FullscreenShow();
         SceneManager.LoadScene(0);
     }
 }

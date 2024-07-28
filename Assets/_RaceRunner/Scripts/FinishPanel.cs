@@ -227,6 +227,7 @@ public class FinishPanel : MonoBehaviour
     {
         Time.timeScale = 1f;
         RaceManager.isRespawned = false;
+        YandexGame.FullscreenShow();
         SceneManager.LoadScene(1);
     }
     public void ShowAd() => YandexGame.RewVideoShow((int)TypeOfAd.X2);
@@ -234,6 +235,7 @@ public class FinishPanel : MonoBehaviour
     {
         Time.timeScale = 1f;
         RaceManager.isRespawned = false;
+        YandexGame.FullscreenShow();
         SceneManager.LoadScene(0);
     }
 

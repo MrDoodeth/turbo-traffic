@@ -24,7 +24,7 @@ MonoBehaviour:
     photo: https://justplaygames.ru/public/icon_player.png
     payingStatus: paying
     serverTime: 1721201231000
-  AdWhenLoadingScene: 1
+  AdWhenLoadingScene: 0
   showFirstAd: 1
   rewardedAfterClosing: 1
   adDisplayCalls: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
     description: Product - Gun
     imageURI: https://avatars.mds.yandex.net/get-games/13012056/2a00000190eee530d2e617fd512b3144d29e//default87x87
     price: 5 YAN
-    priceValue: 5
+    priceValue: 29
     priceCurrencyCode: YAN
     currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
     consumed: 0
