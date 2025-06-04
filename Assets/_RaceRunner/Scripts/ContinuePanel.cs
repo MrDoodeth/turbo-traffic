@@ -9,5 +9,5 @@ public class ContinuePanel : MonoBehaviour
         raceManager.ShowResult(0);
         this.gameObject.SetActive(false);
     }
-    public void ShowAd() => YandexGame.RewVideoShow((int)TypeOfAd.Continue);
+    public void ShowAd() => YG2.RewardedAdvShow(TypeOfAd.continuePlay);
 }

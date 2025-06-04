@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using YG;
 
 public class ShopPanel : MonoBehaviour
@@ -25,58 +24,58 @@ public class ShopPanel : MonoBehaviour
         rateMoneyLabel.text = rateMoneyValue.ToString("N0");
         adMoneyLabel.text = adMoneyValue.ToString("N0");
         buyYanMoneyLabel.text = buyYanMoneyValue.ToString("N0");
-        
-        YandexGame.ReviewSentEvent += OnLeftReview;
-        YandexGame.RewardVideoEvent += OnShowAd;
-        YandexGame.PurchaseSuccessEvent += OnSuccessPurchase;
+
+        YG2.onReviewSent += OnLeftReview;
+        YG2.onRewardAdv += OnShowAd;
+        YG2.onPurchaseSuccess += OnSuccessPurchase;
     }
 
-    public void ShowReview() => YandexGame.ReviewShow(true);
-    public void ShowAd() => YandexGame.RewVideoShow((int)TypeOfAd.Money);
-    public void GetPayment() => YandexGame.BuyPayments("money");
+    public void ShowReview() => YG2.ReviewShow();
+    public void ShowAd() => YG2.RewardedAdvShow(TypeOfAd.money);
+    public void GetPayment() => YG2.BuyPayments(TypeOfPurchase.money);
     private void OnDisable()
     {
-        YandexGame.ReviewSentEvent -= OnLeftReview;
-        YandexGame.RewardVideoEvent -= OnShowAd;
-        YandexGame.PurchaseSuccessEvent -= OnSuccessPurchase;
+        YG2.onReviewSent -= OnLeftReview;
+        YG2.onRewardAdv -= OnShowAd;
+        YG2.onPurchaseSuccess -= OnSuccessPurchase;
     }
 
     private void OnLeftReview(bool action)
     {
         if (action)
         {
-            YandexGame.savesData.moneyAmount += rateMoneyValue;
+            YG2.saves.moneyAmount += rateMoneyValue;
             GarageManager.OnUIUpdated?.Invoke();
-            YandexGame.SaveProgress();
+            YG2.SaveProgress();
             AudioManager.Instance.PlayMoneySound();
         }
     }
     
-    private void OnShowAd(int index)
+    private void OnShowAd(string index)
     {
-        if (index == (int)TypeOfAd.Money)
+        if (index == TypeOfAd.money)
         {
-            YandexGame.savesData.moneyAmount += adMoneyValue;
+            YG2.saves.moneyAmount += adMoneyValue;
             GarageManager.OnUIUpdated?.Invoke();
-            YandexGame.SaveProgress();
+            YG2.SaveProgress();
             AudioManager.Instance.PlayMoneySound();
         }
     }
     private void OnSuccessPurchase(string id)
     {
-        if (id == "money")
+        if (id == TypeOfPurchase.money)
         {
-            YandexGame.savesData.moneyAmount += buyYanMoneyValue;   
+            YG2.saves.moneyAmount += buyYanMoneyValue; 
             GarageManager.OnUIUpdated?.Invoke();
-            YandexGame.SaveProgress();
+            YG2.SaveProgress();
             AudioManager.Instance.PlayPurchaseSound();
         }
     }
 
     public void UpdatePurchase()
     {
-        buyYanLabel.text = YandexGame.purchases[0].priceValue;
-        currencyImageLoadYg.Load(YandexGame.purchases[0].currencyImageURL);
-        iconImageLoadYg.Load(YandexGame.purchases[0].imageURI);
+        buyYanLabel.text = YG2.purchases[0].priceValue;
+        currencyImageLoadYg.Load(YG2.purchases[0].currencyImageURL);
+        iconImageLoadYg.Load(YG2.purchases[0].imageURI);
     }
 }

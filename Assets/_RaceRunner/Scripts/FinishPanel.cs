@@ -169,7 +169,7 @@ public class FinishPanel : MonoBehaviour
     private void OnEnable()
     {
         elapsedTime = SOUND_INTERVAL;
-        YandexGame.RewardVideoEvent += OnX2Ad;
+        YG2.onRewardAdv += OnX2Ad;
         
         gem1PriceLabel.text = gem1Price.ToString();
         gem2PriceLabel.text = gem2Price.ToString();
@@ -208,12 +208,12 @@ public class FinishPanel : MonoBehaviour
 
     private void OnDisable()
     {
-        YandexGame.RewardVideoEvent -= OnX2Ad;
+        YG2.onRewardAdv -= OnX2Ad;
     }
 
-    private void OnX2Ad(int index)
+    private void OnX2Ad(string index)
     {
-        if (index == (int)TypeOfAd.X2)
+        if (index == TypeOfAd.x2)
         {
             X2AdButton.interactable = false;
             DOTween.Sequence()
@@ -227,15 +227,16 @@ public class FinishPanel : MonoBehaviour
     {
         Time.timeScale = 1f;
         RaceManager.isRespawned = false;
-        YandexGame.FullscreenShow();
+        YG2.InterstitialAdvShow();
         SceneManager.LoadScene(1);
     }
-    public void ShowAd() => YandexGame.RewVideoShow((int)TypeOfAd.X2);
+
+    public void ShowAd() => YG2.RewardedAdvShow(TypeOfAd.x2);
     public void MoveToGarage()
     {
         Time.timeScale = 1f;
         RaceManager.isRespawned = false;
-        YandexGame.FullscreenShow();
+        YG2.InterstitialAdvShow();
         SceneManager.LoadScene(0);
     }
 

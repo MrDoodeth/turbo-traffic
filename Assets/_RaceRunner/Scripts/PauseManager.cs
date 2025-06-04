@@ -28,7 +28,7 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         engineSource.mute = false;
-        YandexGame.FullscreenShow();
+        YG2.InterstitialAdvShow();
         SceneManager.LoadScene(0);
     }
 }

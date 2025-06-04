@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -45,12 +44,11 @@ public class RaceManager : MonoBehaviour
 
     private void Awake()
     {
-        QualitySettings.SetQualityLevel(YandexGame.savesData.qualityIndex);
+        QualitySettings.SetQualityLevel(YG2.saves.qualityIndex);
         //Player spawn
-        CarController.Instance = Instantiate(carsConfig.cars[YandexGame.savesData.currentCarIndex].car, Vector3.zero, Quaternion.identity);
+        CarController.Instance = Instantiate(carsConfig.cars[YG2.saves.currentCarIndex].car, Vector3.zero, Quaternion.identity);
         //Change color
-        CarController.Instance.ChangeMaterial(carsConfig.cars[YandexGame.savesData.currentCarIndex].materials[YandexGame.savesData.currentColorIndex]);
-        //mobileHUD.gameObject.SetActive(!YandexGame.EnvironmentData.isDesktop);
+        CarController.Instance.ChangeMaterial(carsConfig.cars[YG2.saves.currentCarIndex].materials[YG2.saves.currentColorIndex]);
     }
     
     private void Update()
@@ -78,8 +76,8 @@ public class RaceManager : MonoBehaviour
     {
         OnOvertaking += OnScoreUpdate;
         OnPlayerFinished += Finish;
-        YandexGame.RewardVideoEvent += OnX2Ad;
-        YandexGame.RewardVideoEvent += OnContinueAd;
+        YG2.onRewardAdv += OnX2Ad;
+        YG2.onRewardAdv += OnContinueAd;
         
         if (!isRespawned)
         {
@@ -94,8 +92,8 @@ public class RaceManager : MonoBehaviour
     {
         OnOvertaking -= OnScoreUpdate;
         OnPlayerFinished -= Finish;
-        YandexGame.RewardVideoEvent -= OnX2Ad;
-        YandexGame.RewardVideoEvent -= OnContinueAd;
+        YG2.onRewardAdv -= OnX2Ad;
+        YG2.onRewardAdv -= OnContinueAd;
     }
     
     private void OnScoreUpdate(int scoreAmount)
@@ -108,25 +106,25 @@ public class RaceManager : MonoBehaviour
     private static void TrySaveNewScore()
     {
         var score = Mathf.RoundToInt(currentScore);
-        if (YandexGame.savesData.highScore < score)
+        if (YG2.saves.highScore < score)
         {
-            YandexGame.savesData.highScore = score;
-            YandexGame.NewLeaderboardScores(LEADERBOARD_NAME, score);
-            YandexGame.SaveProgress();
+            YG2.saves.highScore = score;
+            YG2.SetLeaderboard(LEADERBOARD_NAME, score);
+            YG2.SaveProgress();
         }
     }
-    private void OnX2Ad(int index)
+    private void OnX2Ad(string index)
     {
-        if (index == (int)TypeOfAd.X2)
+        if (index == TypeOfAd.x2)
         {
-            YandexGame.savesData.moneyAmount += resultMoney;
+            YG2.saves.moneyAmount += resultMoney;
             finishPanel.targetResultValueMoney = resultMoney * 2;
-            YandexGame.SaveProgress();
+            YG2.SaveProgress();
         }
     }
-    private void OnContinueAd(int index)
+    private void OnContinueAd(string index)
     {
-        if (index == (int)TypeOfAd.Continue)
+        if (index == TypeOfAd.continuePlay)
         {
             isRespawned = true;
             Time.timeScale = 1f;
@@ -164,9 +162,9 @@ public class RaceManager : MonoBehaviour
             }
             resultMoney = distanceMoney + overtakingMoney + highSpeedMoney + oncomingMoney + gemsMoney;
         
-            YandexGame.savesData.moneyAmount += resultMoney;
+            YG2.saves.moneyAmount += resultMoney;
             TrySaveNewScore();
-            YandexGame.SaveProgress();
+            YG2.SaveProgress();
         
             finishPanel.targetScoreValue = currentScore;
             finishPanel.targetDistanceValue = CarController.Instance.GetDistance();

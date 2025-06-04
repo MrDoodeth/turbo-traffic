@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -73,7 +72,7 @@ public class CarController : MonoBehaviour
         controller = new DefaultInputActions();
         Wheels = transform.GetChild(1);
         body = transform.GetChild(0);
-        body.AddComponent<GpuInstancerEnabler>();
+        body.gameObject.AddComponent<GpuInstancerEnabler>();
         car = this.transform;
         
         rb = GetComponent<Rigidbody>();

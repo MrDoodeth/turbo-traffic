@@ -33,20 +33,20 @@ public class SettingPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        qualityToggles[YandexGame.savesData.qualityIndex].isOn = true;
+        qualityToggles[YG2.saves.qualityIndex].isOn = true;
         
         soundImage = soundButton.GetComponent<Image>();
         musicImage = musicButton.GetComponent<Image>();
         
-        soundImage.sprite = YandexGame.savesData.isSoundActive ? onSound : offSound;
-        musicImage.sprite = YandexGame.savesData.isMusicActive ? onMusic : offMusic;
+        soundImage.sprite = YG2.saves.isSoundActive ? onSound : offSound;
+        musicImage.sprite = YG2.saves.isMusicActive ? onMusic : offMusic;
 
         UpdateLanguage();
     }
     
     private void UpdateLanguage()
     {
-        switch (YandexGame.savesData.language)
+        switch (YG2.lang)
         {
             case "ru":
                 languageToggles[0].isOn = true;
@@ -64,8 +64,8 @@ public class SettingPanel : MonoBehaviour
         if (qualityToggles[index].isOn)
         {
             QualitySettings.SetQualityLevel(index);
-            YandexGame.savesData.qualityIndex = index;
-            YandexGame.SaveProgress();
+            YG2.saves.qualityIndex = index;
+            YG2.SaveProgress();
             AudioManager.Instance.PlayClickSound();
         }
     }
@@ -88,8 +88,8 @@ public class SettingPanel : MonoBehaviour
 
         if (languageToggles[index].isOn)
         {
-            YandexGame.SwitchLanguage(local);
-            YandexGame.SaveProgress();
+            YG2.SwitchLanguage(local);
+            YG2.SaveProgress();
             AudioManager.Instance.PlayClickSound();
         }
     }
@@ -98,7 +98,7 @@ public class SettingPanel : MonoBehaviour
     {
         soundImage = soundButton.GetComponent<Image>();
         
-        if (YandexGame.savesData.isSoundActive)
+        if (YG2.saves.isSoundActive)
         {
             soundImage.sprite = onSound;
             audioMixer.SetFloat("soundVolume", 0f);
@@ -114,7 +114,7 @@ public class SettingPanel : MonoBehaviour
     {
         musicImage = musicButton.GetComponent<Image>();
         
-        if (YandexGame.savesData.isMusicActive)
+        if (YG2.saves.isMusicActive)
         {
             musicImage.sprite = onMusic;
             audioMixer.SetFloat("musicVolume", 0f);
@@ -133,15 +133,15 @@ public class SettingPanel : MonoBehaviour
 
     public void SwitchSound()
     {
-        YandexGame.savesData.isSoundActive = !YandexGame.savesData.isSoundActive;
-        YandexGame.SaveProgress();
+        YG2.saves.isSoundActive = !YG2.saves.isSoundActive;
+        YG2.SaveProgress();
         UpdateSound();
     }
     
     public void SwitchMusic()
     {
-        YandexGame.savesData.isMusicActive = !YandexGame.savesData.isMusicActive;
-        YandexGame.SaveProgress();
+        YG2.saves.isMusicActive = !YG2.saves.isMusicActive;
+        YG2.SaveProgress();
         UpdateMusic();
     }
 }

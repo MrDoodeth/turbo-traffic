@@ -1,6 +1,6 @@
-public enum TypeOfAd
+public struct TypeOfAd
 {
-    X2 = 0,
-    Money = 1,
-    Continue = 2
+    public const string x2 = "x2";
+    public const string money = "money";
+    public const string continuePlay = "continue";
 }
